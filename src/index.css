@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Space Grotesk", ui-sans-serif, system-ui, sans-serif;
+  
+  --color-apple-bg: #f5f5f7;
+  --color-apple-card: rgba(255, 255, 255, 0.7);
+  --color-apple-card-dark: rgba(255, 255, 255, 0.9);
+  --color-apple-text: #1d1d1f;
+  --color-apple-text-muted: #86868b;
+  --color-apple-blue: #0066cc;
+}
+
+@layer utilities {
+  .glass {
+    @apply bg-white/60 backdrop-blur-xl border border-white/40 shadow-[0_8px_32px_rgba(0,0,0,0.04)];
+  }
+  .glass-card {
+    @apply bg-white/70 backdrop-blur-lg border border-white/50 shadow-[0_4px_24px_rgba(0,0,0,0.06)] rounded-3xl;
+  }
+  .glass-panel {
+    @apply bg-white/80 backdrop-blur-2xl border border-white/60 shadow-[0_12px_48px_rgba(0,0,0,0.08)] rounded-[2.5rem];
+  }
+  .skeuo-button {
+    @apply bg-gradient-to-b from-white to-gray-50 border border-gray-200 shadow-[0_2px_8px_rgba(0,0,0,0.04),inset_0_1px_0_white] rounded-full active:shadow-[inset_0_2px_4px_rgba(0,0,0,0.05)] active:from-gray-50 active:to-gray-100 transition-all;
+  }
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-blue-600 to-indigo-600;
+  }
+}
+
+body {
+  background-color: #f5f5f7;
+  background-image: 
+    radial-gradient(at 0% 0%, hsla(253,16%,7%,0.03) 0, transparent 50%), 
+    radial-gradient(at 50% 0%, hsla(225,39%,30%,0.03) 0, transparent 50%), 
+    radial-gradient(at 100% 0%, hsla(339,49%,30%,0.03) 0, transparent 50%);
+  color: #1d1d1f;
+  overflow: hidden;
+}
