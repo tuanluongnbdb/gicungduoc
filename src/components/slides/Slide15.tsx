@@ -4,19 +4,19 @@ import { Shield, TrendingUp, TestTube, Pill, Leaf, Sparkles } from 'lucide-react
 
 export function Slide15A() {
   return (
-    <div className="w-full h-full flex flex-col p-12 bg-white/40 relative overflow-hidden">
+    <div className="w-full h-full flex flex-col p-6 bg-white/40 relative overflow-hidden">
       <motion.h2 
         initial={{ opacity: 0, x: -20 }}
         animate={{ opacity: 1, x: 0 }}
-        className="font-display text-5xl font-bold text-gray-900 mb-12 flex items-center gap-6"
+        className="font-display text-3xl font-bold text-gray-900 mb-6 flex items-center gap-3"
       >
-        <Sparkles className="text-purple-500" size={48} />
+        <Sparkles className="text-purple-500" size={28} />
         Một vài ứng dụng khác (Phần 1)
       </motion.h2>
 
-      <div className="grid grid-cols-3 gap-8 flex-1">
+      <div className="grid grid-cols-3 gap-4 flex-1">
         <AppCard 
-          icon={<Shield size={40} />}
+          icon={<Shield size={28} />}
           title="Vaccine"
           color="blue"
           delay={0.2}
@@ -24,10 +24,10 @@ export function Slide15A() {
             "Vaccine viêm gan B làm từ nấm men",
             "Hơn 1 tỷ liều mỗi năm"
           ]}
-          bgIcon={<Shield size={150} />}
+          bgIcon={<Shield size={100} />}
         />
         <AppCard 
-          icon={<TrendingUp size={40} />}
+          icon={<TrendingUp size={28} />}
           title="Hormone tăng trưởng"
           color="purple"
           delay={0.4}
@@ -37,10 +37,10 @@ export function Slide15A() {
             "Nay: Vi khuẩn sản xuất an toàn",
             "> 500,000 trẻ em được điều trị"
           ]}
-          bgIcon={<TrendingUp size={150} />}
+          bgIcon={<TrendingUp size={100} />}
         />
         <AppCard 
-          icon={<TestTube size={40} />}
+          icon={<TestTube size={28} />}
           title="Test COVID-19"
           color="rose"
           delay={0.6}
@@ -48,7 +48,7 @@ export function Slide15A() {
             "Dùng enzyme từ vi khuẩn suối nước nóng",
             "Hơn 4 tỷ test đã được thực hiện"
           ]}
-          bgIcon={<TestTube size={150} />}
+          bgIcon={<TestTube size={100} />}
         />
       </div>
     </div>
@@ -57,20 +57,20 @@ export function Slide15A() {
 
 export function Slide15B() {
   return (
-    <div className="w-full h-full flex flex-col p-12 bg-white/40 relative overflow-hidden">
+    <div className="w-full h-full flex flex-col p-6 bg-white/40 relative overflow-hidden">
       <motion.h2 
         initial={{ opacity: 0, x: -20 }}
         animate={{ opacity: 1, x: 0 }}
-        className="font-display text-5xl font-bold text-gray-900 mb-12 flex items-center gap-6"
+        className="font-display text-3xl font-bold text-gray-900 mb-6 flex items-center gap-3"
       >
-        <Sparkles className="text-purple-500" size={48} />
+        <Sparkles className="text-purple-500" size={28} />
         Một vài ứng dụng khác (Phần 2)
       </motion.h2>
 
-      <div className="flex justify-center gap-12 flex-1 items-center">
+      <div className="flex justify-center gap-6 flex-1 items-center">
         <div className="w-1/3 h-full">
           <AppCard 
-            icon={<Pill size={48} />}
+            icon={<Pill size={28} />}
             title="Vitamin"
             color="amber"
             delay={0.2}
@@ -78,12 +78,12 @@ export function Slide15B() {
               "Vitamin B12, C, B2 từ vi khuẩn và nấm",
               "Giá thành giảm 90%"
             ]}
-            bgIcon={<Pill size={200} />}
+            bgIcon={<Pill size={120} />}
           />
         </div>
         <div className="w-1/3 h-full">
           <AppCard 
-            icon={<Leaf size={48} />}
+            icon={<Leaf size={28} />}
             title="Men vi sinh"
             color="emerald"
             delay={0.4}
@@ -91,7 +91,7 @@ export function Slide15B() {
               "Vi khuẩn tốt giúp tiêu hóa (sữa chua)",
               "Giúp cơ thể khỏe mạnh hơn"
             ]}
-            bgIcon={<Leaf size={200} />}
+            bgIcon={<Leaf size={120} />}
           />
         </div>
       </div>
@@ -113,7 +113,7 @@ function AppCard({ icon, title, items, color, delay, bgIcon }: any) {
       initial={{ opacity: 0, y: 30 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ delay, type: "spring", stiffness: 100 }}
-      className={`glass-card p-10 bg-gradient-to-br ${colorStyles?.split(' ')[0]} ${colorStyles?.split(' ')[1]} ${colorStyles?.split(' ')[2]} flex flex-col h-full shadow-2xl relative overflow-hidden`}
+      className={`glass-card p-5 bg-gradient-to-br ${colorStyles?.split(' ')[0]} ${colorStyles?.split(' ')[1]} ${colorStyles?.split(' ')[2]} flex flex-col h-full shadow-2xl relative overflow-hidden`}
     >
       <motion.div 
         animate={{ rotate: [0, 5, -5, 0], scale: [1, 1.05, 1] }} 
@@ -123,17 +123,17 @@ function AppCard({ icon, title, items, color, delay, bgIcon }: any) {
         {bgIcon}
       </motion.div>
 
-      <div className="flex items-center gap-6 mb-8 relative z-10">
-        <div className={`p-4 rounded-2xl shadow-inner ${colorStyles?.split(' ')[4]} ${colorStyles?.split(' ')[3]}`}>
+      <div className="flex items-center gap-3 mb-4 relative z-10">
+        <div className={`p-2 rounded-xl shadow-inner ${colorStyles?.split(' ')[4]} ${colorStyles?.split(' ')[3]}`}>
           {icon}
         </div>
-        <h3 className="font-bold text-3xl text-gray-800">{title}</h3>
+        <h3 className="font-bold text-xl text-gray-800">{title}</h3>
       </div>
       
-      <ul className="space-y-6 flex-1 relative z-10 bg-white/60 p-6 rounded-3xl border border-white/50">
+      <ul className="space-y-3 flex-1 relative z-10 bg-white/60 p-3 rounded-2xl border border-white/50">
         {items.map((item: string, idx: number) => (
-          <li key={idx} className="flex items-start gap-4 text-xl">
-            <div className={`w-3 h-3 rounded-full mt-2 shrink-0 ${colorStyles?.split(' ')[3].replace('text-', 'bg-')}`} />
+          <li key={idx} className="flex items-start gap-2 text-base">
+            <div className={`w-2 h-2 rounded-full mt-2 shrink-0 ${colorStyles?.split(' ')[3].replace('text-', 'bg-')}`} />
             <span className="text-gray-700 font-medium">{item}</span>
           </li>
         ))}

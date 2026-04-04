@@ -1,13 +1,14 @@
 import React, { useState, useEffect, useCallback, useRef } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
-import { ChevronLeft, ChevronRight, Maximize, Minimize } from 'lucide-react';
+import { ChevronLeft, ChevronRight, Maximize, Minimize, ZoomIn, ZoomOut, RotateCcw } from 'lucide-react';
 import { slides } from './slides';
 
 export default function Presentation() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [direction, setDirection] = useState(0);
   const [isFullscreen, setIsFullscreen] = useState(false);
-  const [scale, setScale] = useState(1);
+  const [autoScale, setAutoScale] = useState(1);
+  const [userScale, setUserScale] = useState(1);
   const containerRef = useRef<HTMLDivElement>(null);
 
   const nextSlide = useCallback(() => {
@@ -53,7 +54,7 @@ export default function Presentation() {
         const availableHeight = clientHeight - (isFullscreen ? 0 : 60); // Leave space for controls if not fullscreen
         const scaleX = clientWidth / 1280;
         const scaleY = availableHeight / 720;
-        setScale(Math.min(scaleX, scaleY) * (isFullscreen ? 1 : 0.95)); // 95% to leave a nice margin when not fullscreen
+        setAutoScale(Math.min(scaleX, scaleY) * (isFullscreen ? 1 : 0.98)); // Increased to 0.98 for maximum visibility
       }
     };
 
@@ -71,7 +72,8 @@ export default function Presentation() {
       }
     } else {
       try {
-        const promise = document.documentElement.requestFullscreen?.();
+        const docEl = document.documentElement as any;
+        const promise = (docEl.requestFullscreen || docEl.webkitRequestFullscreen || docEl.msRequestFullscreen)?.call(docEl);
         if (promise) {
           promise.catch(() => {
             // Fallback to CSS fullscreen if native fails (e.g., in iframe)
@@ -86,7 +88,13 @@ export default function Presentation() {
     }
   };
 
+  const handleZoomIn = () => setUserScale(prev => Math.min(prev + 0.1, 2));
+  const handleZoomOut = () => setUserScale(prev => Math.max(prev - 0.1, 0.5));
+  const resetZoom = () => setUserScale(1);
+
   const CurrentSlideComponent = slides[currentSlide];
+
+  const finalScale = autoScale * userScale;
 
   return (
     <div className={`flex flex-col items-center justify-center relative overflow-hidden transition-all duration-500 ${
@@ -104,10 +112,10 @@ export default function Presentation() {
           style={{ 
             width: 1280, 
             height: 720, 
-            transform: `scale(${scale})`,
+            transform: `scale(${finalScale})`,
             transformOrigin: 'center center'
           }}
-          className={`glass-panel relative overflow-hidden flex flex-col shrink-0 shadow-2xl ${isFullscreen ? 'rounded-none border-none' : ''}`}
+          className={`glass-panel relative overflow-hidden flex flex-col shrink-0 shadow-2xl transition-transform duration-300 ease-out ${isFullscreen ? 'rounded-none border-none' : ''}`}
         >
           <AnimatePresence mode="wait" custom={direction}>
             <motion.div
@@ -160,6 +168,50 @@ export default function Presentation() {
         >
           {isFullscreen ? <Minimize size={16} /> : <Maximize size={16} />}
         </button>
+
+        <div className="w-px h-4 bg-gray-300 mx-1" />
+
+        {/* Zoom Controls */}
+        <div className="flex items-center gap-2">
+          <button 
+            onClick={handleZoomOut}
+            className="p-1.5 skeuo-button text-gray-700 hover:text-blue-600"
+            title="Thu nhỏ nội dung"
+          >
+            <ZoomOut size={16} />
+          </button>
+          
+          <div className="flex items-center gap-2 group relative">
+            <input 
+              type="range" 
+              min="0.5" 
+              max="2" 
+              step="0.01" 
+              value={userScale} 
+              onChange={(e) => setUserScale(parseFloat(e.target.value))}
+              className="w-24 h-1.5 bg-gray-200 rounded-lg appearance-none cursor-pointer accent-blue-500"
+            />
+            <span className="text-[10px] font-mono text-gray-500 w-8 text-center">
+              {Math.round(userScale * 100)}%
+            </span>
+          </div>
+
+          <button 
+            onClick={handleZoomIn}
+            className="p-1.5 skeuo-button text-gray-700 hover:text-blue-600"
+            title="Phóng to nội dung"
+          >
+            <ZoomIn size={16} />
+          </button>
+
+          <button 
+            onClick={resetZoom}
+            className="p-1.5 skeuo-button text-gray-700 hover:text-blue-600"
+            title="Đặt lại tỷ lệ"
+          >
+            <RotateCcw size={14} />
+          </button>
+        </div>
       </div>
     </div>
   );
