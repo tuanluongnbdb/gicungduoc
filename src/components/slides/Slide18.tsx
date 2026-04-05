@@ -56,7 +56,7 @@ export function Slide18A() {
             <Sparkles className="text-emerald-200" size={20} />
           </div>
           <p className="text-2xl font-display font-medium leading-relaxed">
-            "Cần ngừng cuộc chiến chống lại vi sinh, thay vào đó hãy <span className="text-emerald-200 font-bold drop-shadow-md">cân bằng, chung sống hòa bình</span>, tận dụng lợi khuẩn để bảo vệ sức khỏe và môi trường."
+            "Đừng chỉ xem vi sinh vật là kẻ thù — hãy học cách <span className="text-emerald-200 font-bold drop-shadow-md">chung sống và tận dụng chúng</span> để bảo vệ sức khỏe con người."
           </p>
         </motion.div>
       </motion.div>

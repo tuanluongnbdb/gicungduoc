@@ -7,6 +7,28 @@ import { Trophy, Heart, Play, RefreshCcw, ArrowRight, ArrowLeft, ArrowUp, ArrowD
 const QUESTIONS = [
   {
     id: 1,
+    question: "Vi sinh vật là gì?",
+    options: [
+      "Những sinh vật khổng lồ",
+      "Những sinh vật quá nhỏ để nhìn bằng mắt thường",
+      "Chỉ là vi khuẩn",
+      "Chỉ là virus"
+    ],
+    correct: 1
+  },
+  {
+    id: 2,
+    question: "Có bao nhiêu vi sinh vật trong cơ thể người?",
+    options: [
+      "Khoảng 1 triệu",
+      "Khoảng 1 tỷ",
+      "Khoảng 38 nghìn tỷ",
+      "Không có vi sinh vật nào"
+    ],
+    correct: 2
+  },
+  {
+    id: 3,
     question: "Bác sĩ William Coley phát hiện ra điều gì năm 1891?",
     options: [
       "Vi khuẩn có thể giúp chống ung thư",
@@ -17,18 +39,7 @@ const QUESTIONS = [
     correct: 0
   },
   {
-    id: 2,
-    question: "Tại sao khối u của bệnh nhân trong hồ sơ cũ của Coley lại biến mất?",
-    options: [
-      "Bệnh nhân uống thuốc đặc biệt",
-      "Bệnh nhân bị nhiễm trùng, sốt cao, hệ miễn dịch tấn công cả khối u",
-      "Bệnh nhân ăn nhiều rau củ",
-      "Khối u tự nhiên biến mất"
-    ],
-    correct: 1
-  },
-  {
-    id: 3,
+    id: 4,
     question: "Fleming phát hiện penicillin như thế nào?",
     options: [
       "Nghiên cứu có kế hoạch nhiều năm",
@@ -39,26 +50,15 @@ const QUESTIONS = [
     correct: 2
   },
   {
-    id: 4,
-    question: "Tại sao vi khuẩn kháng kháng sinh ngày càng nhiều?",
+    id: 5,
+    question: "Trước khi có công nghệ sinh học, Insulin được lấy từ đâu?",
     options: [
-      "Vì vi khuẩn ngày càng thông minh hơn tự nhiên",
-      "Vì con người lạm dụng kháng sinh, không uống đủ liều",
-      "Vì thời tiết thay đổi",
-      "Vì ăn nhiều rau"
+      "Từ cây cỏ",
+      "Từ tụy của lợn và bò",
+      "Từ nước biển",
+      "Từ không khí"
     ],
     correct: 1
-  },
-  {
-    id: 5,
-    question: "Trong tương lai, vi sinh vật có thể giúp con người:",
-    options: [
-      "Điều trị bệnh tâm thần",
-      "Kéo dài tuổi thọ",
-      "Sản xuất thuốc ngay trong cơ thể",
-      "Tất cả các đáp án trên"
-    ],
-    correct: 3
   }
 ];
 

@@ -1,101 +1,69 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { Skull, AlertTriangle, Pill, TrendingUp, XCircle, Biohazard } from 'lucide-react';
-import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer, Cell } from 'recharts';
-
-const data = [
-  { name: 'Hiện nay', value: 0.7, label: '700K' },
-  { name: 'Năm 2050', value: 10, label: '10 Triệu' },
-];
+import { TrendingUp, Users, DollarSign, ShieldCheck, AlertCircle, Calendar } from 'lucide-react';
 
 export function Slide8A() {
   return (
-    <div className="w-full h-full flex flex-col p-6 bg-white/40 relative overflow-hidden">
+    <div className="w-full h-full flex flex-col p-8 bg-white/40 relative overflow-hidden">
       <motion.h2 
         initial={{ opacity: 0, x: -20 }}
         animate={{ opacity: 1, x: 0 }}
-        className="font-display text-3xl font-bold text-gray-900 mb-6 flex items-center gap-3"
+        className="font-display text-3xl font-bold text-gray-900 mb-8 flex items-center gap-3"
       >
-        <AlertTriangle className="text-red-500" size={32} />
-        Vấn đề lớn: Kháng kháng sinh
+        <TrendingUp className="text-blue-500" size={32} />
+        Penicillin — Từ phòng thí nghiệm đến thế giới
       </motion.h2>
 
-      <div className="flex gap-6 flex-1">
-        {/* General Stats */}
+      <div className="flex gap-8 flex-1">
+        {/* The Problem */}
         <motion.div 
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
-          className="w-1/2 glass-card p-6 border-l-8 border-l-red-500 bg-gradient-to-br from-red-50 to-rose-50 shadow-2xl relative overflow-hidden"
+          className="w-1/2 glass-card p-8 border-l-8 border-l-red-500 shadow-2xl relative overflow-hidden flex flex-col justify-center"
         >
           <motion.div 
-            animate={{ scale: [1, 1.2, 1], opacity: [0.1, 0.2, 0.1] }} 
-            transition={{ duration: 4, repeat: Infinity }}
-            className="absolute -bottom-10 -right-10 text-red-500"
+            animate={{ scale: [1, 1.1, 1] }} 
+            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute -top-10 -right-10 text-red-100 opacity-50"
           >
-            <Biohazard size={120} />
+            <AlertCircle size={140} />
           </motion.div>
 
-          <h3 className="font-bold text-xl text-red-800 mb-4 flex items-center gap-2.5 relative z-10">
-            <TrendingUp size={24} />
-            Thực trạng hiện nay
-          </h3>
-          <div className="space-y-4 text-red-900 font-medium text-lg relative z-10">
-            <motion.div 
-              initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.4 }}
-              className="bg-white/60 p-3 rounded-xl border border-red-100 shadow-sm"
-            >
-              <p className="text-sm uppercase text-red-500 font-bold mb-1">Mỗi năm</p>
-              <p className="text-2xl font-black text-red-700">700.000 người</p>
-              <p className="text-base">tử vong do vi khuẩn kháng thuốc.</p>
-            </motion.div>
-            
-            <motion.div 
-              initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.5 }}
-              className="bg-white/60 p-3 rounded-xl border border-red-100 shadow-sm"
-            >
-              <p className="text-sm uppercase text-red-500 font-bold mb-1">Đến năm 2050</p>
-              <p className="text-2xl font-black text-red-700">10 triệu người</p>
-              <p className="text-base">có thể tử vong mỗi năm nếu không có giải pháp.</p>
-            </motion.div>
-
-            <motion.p 
-              initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.6 }}
-              className="text-base italic text-red-600 bg-red-100/50 p-2 rounded-lg"
-            >
-              "Kháng kháng sinh là một trong những mối đe dọa lớn nhất đối với sức khỏe toàn cầu."
-            </motion.p>
+          <div className="flex items-center gap-4 mb-6 text-red-800 relative z-10">
+            <div className="p-3 bg-red-100 rounded-2xl shadow-inner">
+              <AlertCircle size={32} />
+            </div>
+            <h3 className="font-bold text-2xl">Vấn đề lớn (1928–1941)</h3>
           </div>
+          <p className="text-xl text-gray-700 leading-relaxed relative z-10">
+            Suốt 13 năm, <span className="text-red-600 font-bold">không ai biết cách sản xuất đủ</span> penicillin để làm thuốc.
+          </p>
         </motion.div>
 
-        {/* Causes */}
+        {/* The Breakthrough */}
         <motion.div 
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4 }}
-          className="w-1/2 glass-card p-6 bg-white shadow-2xl flex flex-col"
+          className="w-1/2 glass-card p-8 bg-gradient-to-br from-blue-50 to-indigo-50 border-blue-200 shadow-2xl relative overflow-hidden flex flex-col"
         >
-          <h3 className="font-bold text-xl text-gray-800 mb-3 flex items-center gap-2.5">
-            <motion.div animate={{ rotate: [-10, 10, -10] }} transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}>
-              <Pill size={28} className="text-orange-500 drop-shadow-md" />
-            </motion.div>
-            Tại sao xảy ra?
-          </h3>
-          <p className="text-lg text-gray-600 italic mb-4 p-3 bg-orange-50 rounded-xl border border-orange-100">"Vi khuẩn đang học cách chống lại kháng sinh."</p>
-          <ul className="space-y-3 flex-1">
-            <motion.li initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.6 }} className="flex items-center gap-2.5 text-lg text-gray-700">
-              <XCircle size={20} className="text-orange-500 shrink-0" />
-              <span>Dùng kháng sinh quá nhiều</span>
-            </motion.li>
-            <motion.li initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.7 }} className="flex items-center gap-2.5 text-lg text-gray-700">
-              <XCircle size={20} className="text-orange-500 shrink-0" />
-              <span>Không uống đủ ngày đủ liều</span>
-            </motion.li>
-            <motion.li initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.8 }} className="flex items-center gap-2.5 text-lg text-gray-700">
-              <XCircle size={20} className="text-orange-500 shrink-0" />
-              <span>Dùng kháng sinh cho động vật nuôi quá nhiều</span>
-            </motion.li>
-          </ul>
+          <motion.div 
+            animate={{ rotate: [0, 10, -10, 0] }} 
+            transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute -bottom-10 -right-10 text-blue-200 opacity-50"
+          >
+            <Calendar size={140} />
+          </motion.div>
+
+          <div className="flex items-center justify-between mb-6 relative z-10">
+            <h3 className="font-bold text-2xl text-blue-900">Năm 1941</h3>
+            <span className="px-3 py-1 bg-blue-200 text-blue-800 rounded-xl text-lg font-bold shadow-sm">Bước ngoặt</span>
+          </div>
+          
+          <p className="text-xl text-gray-700 relative z-10 leading-relaxed bg-white/60 p-6 rounded-3xl border border-blue-100">
+            Hai nhà khoa học giải quyết được bài toán <span className="text-blue-600 font-bold">sản xuất hàng loạt</span>.
+          </p>
         </motion.div>
       </div>
     </div>
@@ -104,67 +72,66 @@ export function Slide8A() {
 
 export function Slide8B() {
   return (
-    <div className="w-full h-full flex flex-col p-6 bg-white/40 relative overflow-hidden">
+    <div className="w-full h-full flex flex-col p-8 bg-white/40 relative overflow-hidden">
       <motion.h2 
         initial={{ opacity: 0, x: -20 }}
         animate={{ opacity: 1, x: 0 }}
-        className="font-display text-3xl font-bold text-gray-900 mb-6 flex items-center gap-3"
+        className="font-display text-3xl font-bold text-gray-900 mb-8 flex items-center gap-3"
       >
-        <AlertTriangle className="text-red-500" size={32} />
-        Dự đoán tương lai
+        <ShieldCheck className="text-emerald-500" size={32} />
+        Kết quả vĩ đại
       </motion.h2>
 
-      <div className="flex flex-col flex-1 justify-center">
-        <motion.div 
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.2, type: "spring" }}
-          className="glass-card p-6 bg-gradient-to-br from-gray-900 to-slate-800 text-white flex flex-col shadow-2xl h-[480px]"
-        >
-          <div className="mb-2 text-center">
-            <h3 className="font-display text-2xl font-bold text-white mb-1">Dự đoán số người tử vong</h3>
-            <p className="text-lg text-gray-400">Mỗi năm do vi khuẩn kháng thuốc</p>
-          </div>
-
-          <div className="flex-1 w-full min-h-[180px]">
-            <ResponsiveContainer width="100%" height="100%">
-              <BarChart data={data} margin={{ top: 10, right: 20, left: 0, bottom: 0 }}>
-                <XAxis dataKey="name" stroke="#94a3b8" tick={{ fill: '#f8fafc', fontSize: 12, fontWeight: 500 }} />
-                <Tooltip 
-                  cursor={{ fill: 'rgba(255,255,255,0.1)' }}
-                  contentStyle={{ backgroundColor: '#1e293b', border: 'none', borderRadius: '10px', color: '#fff', fontSize: '12px' }}
-                />
-                <Bar dataKey="value" radius={[8, 8, 0, 0]}>
-                  {data.map((entry, index) => (
-                    <Cell key={`cell-${index}`} fill={index === 0 ? '#3b82f6' : '#ef4444'} />
-                  ))}
-                </Bar>
-              </BarChart>
-            </ResponsiveContainer>
-          </div>
-
-          <div className="mt-4 flex justify-between items-end px-6">
-            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.6 }} className="text-center">
-              <p className="text-3xl font-display font-bold text-blue-400 drop-shadow-lg">700,000</p>
-              <p className="text-base text-gray-400 mt-0.5">Hiện nay</p>
-            </motion.div>
-            <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.8 }} className="text-center">
-              <p className="text-4xl font-display font-bold text-red-400 drop-shadow-[0_0_15px_rgba(239,68,68,0.5)]">10 Triệu</p>
-              <p className="text-base text-gray-400 mt-0.5">Năm 2050</p>
-            </motion.div>
-          </div>
-
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1.0 }}
-            className="mt-8 p-3 bg-red-500/20 border border-red-500/30 rounded-xl text-center"
-          >
-            <div className="text-red-200 text-lg font-medium flex items-center justify-center gap-2.5">
-              <motion.div animate={{ y: [0, -5, 0] }} transition={{ duration: 1, repeat: Infinity }}><TrendingUp size={20} /></motion.div>
-              Dự đoán sẽ nhiều hơn cả tử vong do ung thư!
-            </div>
-          </motion.div>
-        </motion.div>
+      <div className="grid grid-cols-3 gap-6 flex-1">
+        <ResultCard 
+          icon={<TrendingUp size={32} />}
+          title="Sản lượng"
+          color="blue"
+          delay={0.2}
+          value="Hàng triệu liều"
+          desc="Tăng vọt từ năm 1945"
+        />
+        <ResultCard 
+          icon={<DollarSign size={32} />}
+          title="Giá thành"
+          color="amber"
+          delay={0.4}
+          value="< 0,1 USD"
+          desc="Giảm hơn 200 lần"
+        />
+        <ResultCard 
+          icon={<Users size={32} />}
+          title="Cứu sống"
+          color="emerald"
+          delay={0.6}
+          value="200 Triệu người"
+          desc="Ước tính từ năm 1942"
+        />
       </div>
     </div>
+  );
+}
+
+function ResultCard({ icon, title, value, desc, color, delay }: any) {
+  const colorStyles = {
+    blue: "from-blue-50 to-indigo-50 border-blue-200 text-blue-600 bg-blue-100",
+    amber: "from-amber-50 to-orange-50 border-amber-200 text-amber-600 bg-amber-100",
+    emerald: "from-emerald-50 to-teal-50 border-emerald-200 text-emerald-600 bg-emerald-100",
+  }[color as string];
+
+  return (
+    <motion.div 
+      initial={{ opacity: 0, y: 30 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay, type: "spring", stiffness: 100 }}
+      className={`glass-card p-8 bg-gradient-to-br ${colorStyles?.split(' ')[0]} ${colorStyles?.split(' ')[1]} ${colorStyles?.split(' ')[2]} flex flex-col items-center text-center h-full shadow-2xl relative overflow-hidden`}
+    >
+      <div className={`p-4 rounded-2xl shadow-inner mb-6 ${colorStyles?.split(' ')[4]} ${colorStyles?.split(' ')[3]}`}>
+        {icon}
+      </div>
+      <h3 className="font-bold text-xl text-gray-500 mb-4 uppercase tracking-widest">{title}</h3>
+      <p className={`text-4xl font-black mb-2 ${colorStyles?.split(' ')[3]}`}>{value}</p>
+      <p className="text-lg text-gray-600 font-medium">{desc}</p>
+    </motion.div>
   );
 }

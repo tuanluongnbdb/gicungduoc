@@ -1,59 +1,82 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { Search, AlertCircle, ArrowRight, Lightbulb, Activity, FileText } from 'lucide-react';
+import { ShieldAlert, Heart, Swords, Pill, Syringe, Sparkles } from 'lucide-react';
 
 export function Slide3A() {
   return (
-    <div className="w-full h-full flex flex-col p-6 bg-white/40 relative overflow-hidden">
-      {/* 3D Floating Elements */}
-      <motion.div 
-        animate={{ y: [0, -15, 0], rotate: [0, 5, 0] }} 
-        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-32 right-32 w-28 h-28 rounded-full bg-gradient-to-br from-blue-200 to-blue-400 opacity-30 blur-2xl"
-      />
-
+    <div className="w-full h-full flex flex-col p-8 bg-white/40 relative overflow-hidden">
       <motion.h2 
         initial={{ opacity: 0, x: -20 }}
         animate={{ opacity: 1, x: 0 }}
-        className="font-display text-3xl font-bold text-gray-900 mb-6"
+        className="font-display text-3xl font-bold text-gray-900 mb-8 flex items-center gap-3"
       >
-        Câu chuyện của Bác sĩ Coley
+        <Swords className="text-blue-500" size={32} />
+        Vi sinh vật — Kẻ thù hay bạn bè?
       </motion.h2>
 
-      <div className="flex flex-1 gap-6 items-center">
+      <div className="flex gap-8 flex-1">
+        {/* Misconception */}
         <motion.div 
-          initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ delay: 0.2, type: "spring" }}
-          className="w-1/2 glass-card p-6 border-l-8 border-l-blue-500 shadow-2xl relative"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2 }}
+          className="w-1/2 glass-card p-8 border-l-8 border-l-red-500 shadow-2xl relative overflow-hidden flex flex-col justify-center"
         >
-          <div className="absolute -top-3 -right-3 bg-blue-500 text-white p-2.5 rounded-xl shadow-lg rotate-12">
-            <FileText size={20} />
+          <motion.div 
+            animate={{ scale: [1, 1.1, 1] }} 
+            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute -top-10 -right-10 text-red-100 opacity-50"
+          >
+            <ShieldAlert size={140} />
+          </motion.div>
+
+          <div className="flex items-center gap-4 mb-6 text-red-800 relative z-10">
+            <div className="p-3 bg-red-100 rounded-2xl shadow-inner">
+              <ShieldAlert size={32} />
+            </div>
+            <h3 className="font-bold text-2xl">Quan niệm sai lầm</h3>
           </div>
-          <div className="flex items-center gap-3 mb-3">
-            <span className="px-2.5 py-1 bg-blue-100 text-blue-800 rounded-full font-mono text-base font-bold shadow-inner">Năm 1891</span>
-            <h3 className="font-display text-xl font-bold text-gray-800">Bệnh nhân Fred (17 tuổi)</h3>
-          </div>
-          <p className="text-lg text-gray-600 leading-relaxed">
-            Bị ung thư xương ác tính. Bác sĩ William Coley không biết làm thế nào để cứu chữa.
+          <p className="text-xl text-gray-700 leading-relaxed relative z-10">
+            Nhiều người nghĩ vi sinh vật <span className="text-red-600 font-bold">toàn gây bệnh</span> — nhưng thực ra điều đó không đúng.
           </p>
         </motion.div>
 
+        {/* Reality */}
         <motion.div 
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.4, type: "spring", bounce: 0.4 }}
-          className="w-1/2 glass-card p-6 flex flex-col justify-center items-center text-center bg-gradient-to-b from-gray-50 to-gray-100 shadow-xl"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.4 }}
+          className="w-1/2 glass-card p-8 bg-gradient-to-br from-emerald-50 to-teal-50 border-emerald-200 shadow-2xl relative overflow-hidden flex flex-col"
         >
-          <motion.div
-            animate={{ scale: [1, 1.1, 1], rotate: [0, 10, -10, 0] }}
-            transition={{ duration: 4, repeat: Infinity }}
+          <motion.div 
+            animate={{ rotate: [0, 10, -10, 0] }} 
+            transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute -bottom-10 -right-10 text-emerald-200 opacity-50"
           >
-            <Search size={48} className="text-blue-400 mb-4 drop-shadow-lg" />
+            <Heart size={140} />
           </motion.div>
-          <p className="text-lg text-gray-700 font-medium leading-relaxed">
-            Ông quyết định tìm kiếm manh mối trong các hồ sơ bệnh án cũ...
-          </p>
+
+          <div className="flex items-center gap-4 mb-6 text-emerald-800 relative z-10">
+            <div className="p-3 bg-emerald-100 rounded-2xl shadow-inner">
+              <Heart size={32} />
+            </div>
+            <h3 className="font-bold text-2xl">Sự thật bất ngờ</h3>
+          </div>
+          
+          <ul className="space-y-4 text-lg text-emerald-900/90 relative z-10 bg-white/60 p-6 rounded-3xl border border-emerald-100 flex-1">
+            <li className="flex items-center gap-3">
+              <div className="w-3 h-3 rounded-full bg-emerald-400" />
+              Hỗ trợ tiêu hóa thức ăn
+            </li>
+            <li className="flex items-center gap-3">
+              <div className="w-3 h-3 rounded-full bg-emerald-400" />
+              Tổng hợp các vitamin thiết yếu
+            </li>
+            <li className="flex items-center gap-3">
+              <div className="w-3 h-3 rounded-full bg-emerald-400" />
+              Bảo vệ cơ thể khỏi vi khuẩn xấu
+            </li>
+          </ul>
         </motion.div>
       </div>
     </div>
@@ -62,89 +85,58 @@ export function Slide3A() {
 
 export function Slide3B() {
   return (
-    <div className="w-full h-full flex flex-col p-6 bg-white/40 relative overflow-hidden">
+    <div className="w-full h-full flex flex-col p-8 bg-white/40 relative overflow-hidden">
       <motion.h2 
         initial={{ opacity: 0, x: -20 }}
         animate={{ opacity: 1, x: 0 }}
-        className="font-display text-3xl font-bold text-gray-900 mb-6"
+        className="font-display text-3xl font-bold text-gray-900 mb-8 flex items-center gap-3"
       >
-        Phát hiện kỳ lạ
+        <Sparkles className="text-purple-500" size={32} />
+        Sức mạnh kỳ diệu
       </motion.h2>
 
-      <div className="flex flex-col flex-1 justify-center gap-6">
+      <div className="flex flex-col flex-1 justify-center items-center">
         <motion.div 
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2 }}
-          className="glass-card p-6 bg-gradient-to-br from-amber-50 to-orange-50 border border-amber-200 shadow-2xl"
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 0.2, type: "spring" }}
+          className="glass-card p-10 max-w-4xl bg-gradient-to-r from-blue-600 to-indigo-600 text-white shadow-2xl relative overflow-hidden rounded-[2rem]"
         >
-          <div className="flex items-center gap-3 mb-6 text-amber-600">
-            <motion.div animate={{ rotate: [0, 15, -15, 0] }} transition={{ duration: 2, repeat: Infinity }}>
-              <AlertCircle size={28} />
-            </motion.div>
-            <h3 className="font-display text-xl font-bold">Hồ sơ bệnh án đặc biệt</h3>
-          </div>
-
-          <div className="flex items-center justify-between gap-3 mb-6 relative">
-            <motion.div 
-              initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.4 }}
-              className="flex-1 glass p-4 rounded-xl text-center shadow-lg relative overflow-hidden"
-            >
-              <div className="absolute top-0 left-0 w-full h-1 bg-gray-400" />
-              <p className="font-bold text-base text-gray-800 mb-0.5">Khối u ác tính ở cổ</p>
-              <p className="text-gray-500 text-xs">(Bệnh viện trả về)</p>
-            </motion.div>
-            
-            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.6 }}>
-              <ArrowRight className="text-amber-500 w-6 h-6" />
-            </motion.div>
-            
-            <motion.div 
-              initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.8, type: "spring" }}
-              className="flex-1 glass p-4 rounded-xl text-center bg-red-50/80 border-red-200 shadow-xl relative overflow-hidden"
-            >
-              <div className="absolute top-0 left-0 w-full h-1 bg-red-500" />
-              <motion.div animate={{ opacity: [1, 0.5, 1] }} transition={{ duration: 1, repeat: Infinity }}>
-                <Activity className="absolute -right-3 -bottom-3 w-12 h-12 text-red-200 opacity-50" />
-              </motion.div>
-              <p className="font-bold text-base text-red-800 mb-0.5">Nhiễm trùng da nặng</p>
-              <p className="text-red-600 font-medium text-xs">(Sốt cao nhiều ngày)</p>
-            </motion.div>
-            
-            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.0 }}>
-              <ArrowRight className="text-amber-500 w-6 h-6" />
-            </motion.div>
-            
-            <motion.div 
-              initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 1.2 }}
-              className="flex-1 glass p-4 rounded-xl text-center bg-green-50/80 border-green-200 shadow-xl relative overflow-hidden"
-            >
-              <div className="absolute top-0 left-0 w-full h-1 bg-green-500" />
-              <p className="font-bold text-base text-green-800 mb-0.5">Khỏi nhiễm trùng</p>
-              <p className="text-base font-black text-green-600 uppercase tracking-wider">Khối u biến mất!</p>
-            </motion.div>
-          </div>
-
           <motion.div 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 1.6, type: "spring" }}
-            className="bg-white/90 backdrop-blur-md p-4 rounded-xl shadow-lg border border-amber-200 flex gap-4 items-center"
+            animate={{ rotate: 360 }} 
+            transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+            className="absolute -top-20 -right-20 text-white/10"
           >
-            <motion.div 
-              animate={{ scale: [1, 1.2, 1], rotate: [0, 180, 360] }} 
-              transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
-              className="p-2.5 bg-amber-100 text-amber-600 rounded-full shrink-0 shadow-inner"
-            >
-              <Lightbulb size={20} />
-            </motion.div>
-            <div>
-              <p className="text-amber-600 uppercase tracking-widest font-bold mb-0.5 text-[10px]">Giả thuyết của Coley</p>
-              <p className="text-xl font-display font-medium text-gray-800 italic leading-snug">
-                "Có phải vi khuẩn gây nhiễm trùng đã giết chết tế bào ung thư?"
-              </p>
-            </div>
+            <Sparkles size={240} />
           </motion.div>
+
+          <p className="text-3xl font-display font-medium leading-relaxed mb-10 relative z-10">
+            Con người đã học cách tận dụng vi sinh vật để tạo ra <span className="text-yellow-300 font-bold">thuốc, vaccine</span>, và nhiều liệu pháp điều trị kỳ diệu khác.
+          </p>
+
+          <div className="grid grid-cols-3 gap-6 relative z-10">
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4 }}
+              className="bg-white/10 backdrop-blur-md p-6 rounded-2xl border border-white/20 flex flex-col items-center text-center"
+            >
+              <Pill size={40} className="mb-3 text-blue-200" />
+              <p className="font-bold">Thuốc</p>
+            </motion.div>
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.6 }}
+              className="bg-white/10 backdrop-blur-md p-6 rounded-2xl border border-white/20 flex flex-col items-center text-center"
+            >
+              <Syringe size={40} className="mb-3 text-indigo-200" />
+              <p className="font-bold">Vaccine</p>
+            </motion.div>
+            <motion.div 
+              initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.8 }}
+              className="bg-white/10 backdrop-blur-md p-6 rounded-2xl border border-white/20 flex flex-col items-center text-center"
+            >
+              <Sparkles size={40} className="mb-3 text-purple-200" />
+              <p className="font-bold">Liệu pháp mới</p>
+            </motion.div>
+          </div>
         </motion.div>
       </div>
     </div>

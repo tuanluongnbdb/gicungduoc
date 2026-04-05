@@ -1,110 +1,83 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { Microscope, Shield, Zap, Info, Bug } from 'lucide-react';
+import { Activity, AlertTriangle, PiggyBank, DollarSign, Users, Droplet } from 'lucide-react';
 
 export function Slide9A() {
   return (
-    <div className="w-full h-full flex flex-col p-6 bg-white/40 relative overflow-hidden">
+    <div className="w-full h-full flex flex-col p-8 bg-white/40 relative overflow-hidden">
       <motion.h2 
         initial={{ opacity: 0, x: -20 }}
         animate={{ opacity: 1, x: 0 }}
-        className="font-display text-3xl font-bold text-gray-900 mb-6"
+        className="font-display text-3xl font-bold text-gray-900 mb-8 flex items-center gap-4"
       >
-        Thực khuẩn thể - "Sát thủ" của vi khuẩn
+        <Droplet className="text-blue-500" size={36} />
+        Insulin - Từ lợn đến vi khuẩn
       </motion.h2>
 
       <div className="flex gap-6 flex-1">
+        {/* The Problem */}
         <motion.div 
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
-          className="w-1/2 glass-card p-6 flex flex-col border-t-8 border-t-blue-500 shadow-2xl relative overflow-hidden"
+          className="w-1/2 glass-card p-6 border-l-8 border-l-blue-500 shadow-2xl relative overflow-hidden flex flex-col justify-center"
         >
-          <div className="p-3 bg-blue-50 text-blue-600 rounded-2xl w-fit mb-4 shadow-inner relative z-10">
-            <Info size={28} />
-          </div>
-          <h3 className="font-bold text-xl mb-3 relative z-10">Bạn có biết?</h3>
-          <p className="text-gray-600 text-lg mb-4 relative z-10">
-            Thực khuẩn thể (Bacteriophage) là thực thể sinh học phổ biến nhất trên Trái Đất.
-          </p>
           <motion.div 
-            initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.4 }}
-            className="text-lg font-bold text-blue-700 bg-blue-50 p-3 rounded-xl border border-blue-100 relative z-10"
+            animate={{ scale: [1, 1.1, 1] }} 
+            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute -top-10 -right-10 text-blue-100 opacity-50"
           >
-            Có khoảng 10^31 thực khuẩn thể trên hành tinh - nhiều hơn tất cả các sinh vật khác cộng lại!
+            <Activity size={140} />
           </motion.div>
+
+          <div className="flex items-center gap-3 mb-6 text-blue-800 relative z-10">
+            <div className="p-3 bg-blue-100 rounded-2xl shadow-inner">
+              <Activity size={28} />
+            </div>
+            <h3 className="font-bold text-2xl">Đái tháo đường</h3>
+          </div>
+          <div className="bg-white/80 p-6 rounded-3xl shadow-sm border border-blue-100 relative z-10">
+            <p className="text-lg text-gray-700 mb-4 leading-relaxed">Cơ thể không tạo được insulin (chất điều chỉnh đường huyết).</p>
+            <div className="flex items-center gap-3 p-4 bg-red-50 rounded-2xl border border-red-200">
+              <AlertTriangle className="text-red-500" size={24} />
+              <p className="text-lg font-bold text-red-600">Không có insulin = Nguy cơ tử vong.</p>
+            </div>
+          </div>
         </motion.div>
 
+        {/* The Past */}
         <motion.div 
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.4 }}
-          className="w-1/2 glass-card p-6 flex flex-col border-t-8 border-t-indigo-500 bg-gradient-to-br from-indigo-50 to-blue-50 shadow-2xl relative overflow-hidden"
+          className="w-1/2 glass-card p-6 bg-gradient-to-br from-rose-50 to-red-50 border-rose-200 shadow-2xl relative overflow-hidden flex flex-col"
         >
-          <div className="p-3 bg-indigo-100 text-indigo-600 rounded-2xl w-fit mb-4 shadow-inner relative z-10">
-            <Shield size={28} />
+          <motion.div 
+            animate={{ rotate: [0, 10, -10, 0] }} 
+            transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute -bottom-10 -right-10 text-rose-200 opacity-50"
+          >
+            <PiggyBank size={140} />
+          </motion.div>
+
+          <div className="flex items-center justify-between mb-6 relative z-10">
+            <h3 className="font-bold text-2xl text-rose-900">Trước năm 1978</h3>
+            <span className="px-3 py-1 bg-rose-200 text-rose-800 rounded-xl text-base font-bold shadow-sm">Quá khứ</span>
           </div>
-          <h3 className="font-bold text-xl mb-3 text-indigo-900 relative z-10">Vai trò tự nhiên</h3>
-          <ul className="text-lg text-indigo-800 space-y-3 relative z-10">
-            <motion.li initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.6 }}>• Kiểm soát số lượng vi khuẩn trong tự nhiên.</motion.li>
-            <motion.li initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.7 }}>• Giữ cho hệ sinh thái cân bằng.</motion.li>
-            <motion.li initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.8 }}>• Là "kháng sinh tự nhiên" cực kỳ hiệu quả.</motion.li>
+          
+          <div className="flex items-center gap-4 mb-6 p-4 bg-white/80 rounded-3xl shadow-sm border border-rose-100 relative z-10">
+            <div className="p-3 bg-rose-100 rounded-2xl shadow-inner">
+              <PiggyBank className="text-rose-600" size={28} />
+            </div>
+            <p className="text-xl font-bold text-rose-900">Lấy từ tụy lợn và bò</p>
+          </div>
+
+          <ul className="space-y-4 text-lg text-rose-800/90 relative z-10 bg-white/60 p-6 rounded-3xl border border-rose-100 flex-1">
+            <li className="flex items-center gap-3"><div className="w-2.5 h-2.5 rounded-full bg-rose-400" /> 1 bệnh nhân cần 2-3 con lợn/năm</li>
+            <li className="flex items-center gap-3"><div className="w-2.5 h-2.5 rounded-full bg-rose-400" /> Rất đắt (100 USD/lọ năm 1970)</li>
+            <li className="flex items-center gap-3"><div className="w-2.5 h-2.5 rounded-full bg-rose-400" /> Không đủ cho tất cả bệnh nhân</li>
+            <li className="flex items-center gap-3 text-red-600 font-bold bg-red-50 p-3 rounded-xl border border-red-100"><AlertTriangle size={20} /> 5-10% bệnh nhân bị dị ứng</li>
           </ul>
-        </motion.div>
-      </div>
-    </div>
-  );
-}
-
-export function Slide9B() {
-  return (
-    <div className="w-full h-full flex flex-col p-6 bg-white/40 relative overflow-hidden">
-      <motion.h2 
-        initial={{ opacity: 0, x: -20 }}
-        animate={{ opacity: 1, x: 0 }}
-        className="font-display text-3xl font-bold text-gray-900 mb-6"
-      >
-        Tại sao chúng ta cần Thực khuẩn thể?
-      </motion.h2>
-
-      <div className="flex gap-6 flex-1">
-        <motion.div 
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2 }}
-          className="w-1/2 glass-card p-6 flex flex-col border-t-8 border-t-amber-500 bg-gradient-to-br from-amber-50 to-orange-50 shadow-2xl relative overflow-hidden"
-        >
-          <div className="p-3 bg-amber-100 text-amber-600 rounded-2xl w-fit mb-4 shadow-inner relative z-10">
-            <Zap size={28} />
-          </div>
-          <h3 className="font-bold text-xl mb-3 text-amber-900 relative z-10">Vũ khí chống siêu vi khuẩn</h3>
-          <p className="text-lg text-amber-800 mb-3 relative z-10">
-            Khi kháng sinh thất bại, thực khuẩn thể là hy vọng cuối cùng.
-          </p>
-          <div className="p-3 bg-white/80 backdrop-blur-sm rounded-xl text-base border border-amber-200 shadow-md relative z-10">
-            Chúng có thể tiến hóa cùng vi khuẩn, khiến vi khuẩn khó lòng chạy thoát.
-          </div>
-        </motion.div>
-
-        <motion.div 
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.4 }}
-          className="w-1/2 glass-card p-6 flex flex-col border-t-8 border-t-emerald-500 bg-gradient-to-br from-emerald-50 to-teal-50 shadow-2xl relative overflow-hidden justify-center items-center text-center"
-        >
-          <div className="p-4 bg-emerald-100 text-emerald-600 rounded-full mb-4 shadow-inner relative z-10">
-            <Microscope size={48} />
-          </div>
-          <h3 className="font-bold text-2xl mb-4 text-emerald-900 relative z-10">Kỷ nguyên mới của Y học</h3>
-          <p className="text-xl text-emerald-800 relative z-10 leading-relaxed">
-            Liệu pháp Phage đang được nghiên cứu để thay thế hoặc hỗ trợ kháng sinh truyền thống.
-          </p>
-          <motion.div 
-            initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.6 }}
-            className="mt-6 p-4 bg-emerald-500 text-white rounded-2xl font-bold text-xl shadow-xl relative z-10"
-          >
-            An toàn - Chính xác - Hiệu quả
-          </motion.div>
         </motion.div>
       </div>
     </div>

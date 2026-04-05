@@ -1,199 +1,95 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { Shield, Target, Bug, TrendingUp, ShieldCheck, Activity } from 'lucide-react';
+import { FlaskConical, PlaneTakeoff, Eye, Lightbulb, AlertCircle, Calendar, Beaker } from 'lucide-react';
 
 export function Slide7A() {
   return (
-    <div className="w-full h-full flex flex-col p-6 bg-white/40 relative overflow-hidden">
+    <div className="w-full h-full flex flex-col p-8 bg-white/40 relative overflow-hidden">
       <motion.h2 
         initial={{ opacity: 0, x: -20 }}
         animate={{ opacity: 1, x: 0 }}
-        className="font-display text-3xl font-bold text-gray-900 mb-6"
+        className="font-display text-3xl font-bold text-gray-900 mb-8 flex items-center gap-3"
       >
-        Vi sinh vật điều trị ung thư - Ngày nay
+        <FlaskConical className="text-blue-500" size={32} />
+        Alexander Fleming - Phát hiện tình cờ
       </motion.h2>
 
-      <div className="flex gap-6 flex-1">
-        <MethodCard 
-          icon={<ShieldCheck size={40} />}
-          title="BCG (Ung thư bàng quang)"
-          color="blue"
-          delay={0.2}
-          items={[
-            "Vi khuẩn lao bò (đã làm yếu)",
-            "Bơm trực tiếp vào bàng quang",
-            "Hơn 1 triệu người đã điều trị",
-            "Tỷ lệ thành công: 60-70%"
-          ]}
-          animationType="pulse"
-        />
-        <MethodCard 
-          icon={<Activity size={40} />}
-          title="T-VEC (Virus diệt ung thư)"
-          color="purple"
-          delay={0.4}
-          items={[
-            "Virus herpes đã được sửa đổi",
-            "Chỉ tấn công tế bào ung thư",
-            "Được Mỹ chấp thuận từ 2015",
-            "Hơn 5,000 bệnh nhân đã sử dụng"
-          ]}
-          animationType="pulse"
-        />
-      </div>
-    </div>
-  );
-}
-
-export function Slide7B() {
-  return (
-    <div className="w-full h-full flex flex-col p-6 bg-white/40 relative overflow-hidden">
-      <motion.h2 
-        initial={{ opacity: 0, x: -20 }}
-        animate={{ opacity: 1, x: 0 }}
-        className="font-display text-3xl font-bold text-gray-900 mb-6"
-      >
-        Vi sinh vật điều trị ung thư - Ngày nay
-      </motion.h2>
-
-      <div className="flex flex-col gap-6 flex-1">
-        <div className="flex justify-center h-1/2">
-          <div className="w-2/3">
-            <MethodCard 
-              icon={<Bug size={40} />}
-              title="Vi khuẩn Clostridium"
-              color="emerald"
-              delay={0.2}
-              items={[
-                "Sống được trong khối u (thiếu oxy)",
-                "Đang trong giai đoạn thử nghiệm",
-                "24 bệnh nhân đã thử nghiệm",
-                "1 ca khối u biến mất hoàn toàn"
-              ]}
-              animationType="bounce"
-            />
-          </div>
-        </div>
-
+      <div className="flex gap-8 flex-1 mt-4">
+        {/* The Setup */}
         <motion.div 
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.6 }}
-          className="h-1/2 glass-card p-6 bg-gradient-to-r from-gray-900 to-slate-800 text-white flex items-center justify-between shadow-2xl relative overflow-hidden"
+          transition={{ delay: 0.2 }}
+          className="w-1/2 flex flex-col gap-6"
         >
-          {/* Microorganism Background Elements */}
-          <motion.div 
-            animate={{ 
-              x: [0, 50, 0, -50, 0],
-              y: [0, 30, 0, -30, 0],
-              rotate: 360
-            }}
-            transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
-            className="absolute top-10 left-10 text-blue-500/20 pointer-events-none"
-          >
-            <Bug size={60} />
-          </motion.div>
-          <motion.div 
-            animate={{ 
-              x: [0, -40, 0, 40, 0],
-              y: [0, 50, 0, -50, 0],
-              rotate: -360
-            }}
-            transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
-            className="absolute bottom-10 right-1/4 text-emerald-500/20 pointer-events-none"
-          >
-            <Activity size={80} />
-          </motion.div>
-          <motion.div 
-            animate={{ 
-              x: [0, 30, 0, -30, 0],
-              y: [0, -40, 0, 40, 0],
-              scale: [1, 1.2, 1]
-            }}
-            transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-            className="absolute top-1/2 left-1/3 text-purple-500/10 pointer-events-none"
-          >
-            <Shield size={100} />
-          </motion.div>
-
-          <motion.div 
-            animate={{ scale: [1, 1.5, 1], opacity: [0.1, 0.3, 0.1] }} 
-            transition={{ duration: 5, repeat: Infinity }}
-            className="absolute -top-20 -right-20 text-blue-500"
-          >
-            <TrendingUp size={120} />
-          </motion.div>
-
-          <div className="flex items-center gap-5 relative z-10">
+          <div className="glass-card p-8 border-l-8 border-l-blue-500 shadow-2xl relative overflow-hidden">
             <motion.div 
-              animate={{ rotate: [0, 10, -10, 0] }} 
+              animate={{ rotate: [0, 5, -5, 0] }} 
               transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-              className="p-3 bg-white/10 rounded-2xl backdrop-blur-sm border border-white/20"
+              className="absolute -top-6 -right-6 text-blue-100 opacity-50"
             >
-              <TrendingUp size={40} className="text-blue-400 drop-shadow-[0_0_15px_rgba(96,165,250,0.5)]" />
+              <Calendar size={100} />
             </motion.div>
-            <div>
-              <h3 className="text-2xl font-bold text-white mb-1">Con số ấn tượng</h3>
-              <p className="text-lg text-gray-300">Sự phát triển mạnh mẽ của liệu pháp vi sinh</p>
+            <div className="flex items-center gap-4 mb-4 relative z-10">
+              <span className="px-3 py-1 bg-blue-100 text-blue-700 rounded-xl font-mono text-lg font-bold shadow-sm">1928</span>
+              <h3 className="font-bold text-2xl">Bối cảnh</h3>
             </div>
+            <p className="text-xl text-gray-700 relative z-10 leading-relaxed">
+              Tháng 9/1928, Fleming đi nghỉ mát và <span className="text-red-600 font-bold">quên đậy nắp đĩa petri</span> đang nuôi vi khuẩn.
+            </p>
           </div>
-          <div className="text-right relative z-10">
-            <motion.p 
-              initial={{ scale: 0.5, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ delay: 1.0, type: "spring" }}
-              className="font-display text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-emerald-400 mb-1 drop-shadow-lg"
+
+          <div className="glass-card p-8 flex-1 bg-gradient-to-br from-gray-50 to-slate-50 flex flex-col justify-center shadow-2xl relative overflow-hidden">
+            <motion.div 
+              animate={{ x: [0, 20, 0], y: [0, -10, 0] }} 
+              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
+              className="absolute -bottom-6 -right-6 text-slate-200 opacity-50"
             >
-              Hàng chục nghìn
-            </motion.p>
-            <p className="text-lg text-gray-400 font-medium">bệnh nhân được điều trị mỗi năm</p>
+              <PlaneTakeoff size={100} />
+            </motion.div>
+            <div className="flex items-center gap-4 mb-6 text-slate-600 relative z-10">
+              <Eye size={32} />
+              <h3 className="font-bold text-2xl">Khi trở về...</h3>
+            </div>
+            <p className="text-xl text-gray-700 relative z-10 leading-relaxed">
+              Ông thấy nấm mốc mọc trong đĩa — và điều kỳ lạ: <span className="text-emerald-600 font-bold">xung quanh chỗ nấm mọc không có vi khuẩn nào</span>.
+            </p>
           </div>
+        </motion.div>
+
+        {/* The Discovery */}
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 0.4 }}
+          className="w-1/2 glass-card p-8 bg-gradient-to-br from-emerald-50 to-teal-50 border-emerald-200 flex flex-col items-center text-center shadow-2xl relative overflow-hidden"
+        >
+          <motion.div 
+            animate={{ scale: [1, 1.1, 1] }} 
+            transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute -top-10 -left-10 text-emerald-200 opacity-50"
+          >
+            <Lightbulb size={140} />
+          </motion.div>
+
+          <div className="p-4 bg-emerald-100 text-emerald-600 rounded-full mb-6 shadow-inner relative z-10">
+            <Lightbulb size={32} />
+          </div>
+          <h3 className="font-display text-3xl font-bold text-emerald-900 mb-8 relative z-10">Penicillin</h3>
+          
+          <div className="w-48 h-48 rounded-full border-8 border-emerald-200 bg-emerald-50/50 relative flex items-center justify-center mb-8 shadow-[inset_0_0_30px_rgba(16,185,129,0.2)] z-10">
+            <motion.div 
+              animate={{ scale: [1, 1.05, 1] }} transition={{ duration: 4, repeat: Infinity }}
+              className="w-20 h-20 bg-teal-600/80 rounded-full blur-md absolute" 
+            />
+            <div className="w-40 h-40 rounded-full border-4 border-dashed border-red-400/50 absolute animate-[spin_20s_linear_infinite]" />
+            <p className="text-white font-black text-2xl drop-shadow-lg z-20">NẤM MỐC</p>
+          </div>
+
+          <p className="text-2xl text-emerald-800 font-bold mb-4 relative z-10">Phát hiện tình cờ vĩ đại!</p>
+          <p className="text-lg text-emerald-700 font-medium relative z-10">Loại nấm mốc <span className="italic">Penicillium</span> hay mọc trên bánh mì ôi.</p>
         </motion.div>
       </div>
     </div>
-  );
-}
-
-function MethodCard({ icon, title, items, color, delay, animationType }: any) {
-  const colorStyles = {
-    blue: "from-blue-50 to-indigo-50 border-blue-200 text-blue-700",
-    purple: "from-purple-50 to-fuchsia-50 border-purple-200 text-purple-700",
-    emerald: "from-emerald-50 to-teal-50 border-emerald-200 text-emerald-700",
-  }[color as string];
-
-  const iconAnimation = {
-    pulse: { scale: [1, 1.1, 1], transition: { duration: 2, repeat: Infinity } },
-    spin: { rotate: 360, transition: { duration: 10, repeat: Infinity, ease: "linear" } },
-    bounce: { y: [0, -10, 0], transition: { duration: 2, repeat: Infinity, ease: "easeInOut" } }
-  }[animationType as string];
-
-  return (
-    <motion.div 
-      initial={{ opacity: 0, y: 30 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ delay, type: "spring" }}
-      className={`flex-1 glass-card p-6 bg-gradient-to-br ${colorStyles} flex flex-col shadow-2xl relative overflow-hidden`}
-    >
-      <div className="mb-4 flex items-center gap-3 relative z-10">
-        <motion.div 
-          animate={iconAnimation}
-          className={`p-3 rounded-2xl bg-white shadow-xl border border-white/50 ${colorStyles.split(' ')[3]}`}
-        >
-          {icon}
-        </motion.div>
-        <h3 className="font-display text-xl font-bold text-gray-800 leading-tight">{title}</h3>
-      </div>
-      
-      <ul className="space-y-3 flex-1 relative z-10">
-        {items.map((item: string, idx: number) => (
-          <motion.li 
-            key={idx} 
-            initial={{ opacity: 0, x: -20 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: delay + 0.2 + (idx * 0.1) }}
-            className="flex items-start gap-2.5 text-base"
-          >
-            <div className={`w-2 h-2 rounded-full mt-2 shrink-0 shadow-sm ${colorStyles.split(' ')[3].replace('text-', 'bg-')}`} />
-            <span className="text-gray-700 font-medium">{item}</span>
-          </motion.li>
-        ))}
-      </ul>
-    </motion.div>
   );
 }

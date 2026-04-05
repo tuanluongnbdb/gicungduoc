@@ -4,65 +4,84 @@ import { BellRing, ShieldAlert, Swords, Target, Lightbulb, FlaskConical, Dna } f
 
 export function Slide5A() {
   return (
-    <div className="w-full h-full flex flex-col p-6 bg-white/40 relative overflow-hidden">
-      {/* 3D Floating Elements */}
-      <motion.div 
-        animate={{ y: [0, -15, 0], rotate: [0, 5, 0] }} 
-        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-10 right-10 w-40 h-40 rounded-full bg-gradient-to-br from-blue-200 to-blue-400 opacity-20 blur-3xl"
-      />
-
+    <div className="w-full h-full flex flex-col p-8 bg-white/40 relative overflow-hidden">
       <motion.h2 
         initial={{ opacity: 0, x: -20 }}
         animate={{ opacity: 1, x: 0 }}
-        className="font-display text-3xl font-bold text-gray-900 mb-6"
+        className="font-display text-3xl font-bold text-gray-900 mb-8 flex items-center gap-3"
       >
-        Cơ chế hoạt động
+        <FlaskConical className="text-blue-500" size={32} />
+        Coley thử nghiệm và kết quả
       </motion.h2>
 
-      <div className="flex gap-6 flex-1">
+      <div className="flex gap-8 flex-1">
+        {/* Method */}
         <motion.div 
-          initial={{ opacity: 0, y: 20 }}
+          initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
-          className="w-2/3 glass-card p-6 flex flex-col shadow-2xl relative"
+          className="w-1/2 glass-card p-8 border-l-8 border-l-blue-500 shadow-2xl relative overflow-hidden flex flex-col justify-center"
         >
-          <div className="flex items-center gap-3 mb-4 text-blue-600">
-            <motion.div animate={{ rotate: [0, 15, -15, 0] }} transition={{ duration: 2, repeat: Infinity }}>
-              <BellRing size={28} />
-            </motion.div>
-            <h3 className="font-display text-xl font-bold">Hồi chuông báo động</h3>
-          </div>
-          <p className="text-lg text-gray-600 mb-6 font-medium leading-relaxed">
-            Vi khuẩn (kể cả đã chết) hoạt động giống như một <span className="text-blue-600 font-bold">hồi chuông báo động</span>.
-          </p>
+          <motion.div 
+            animate={{ rotate: [0, 5, -5, 0] }} 
+            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute -top-10 -right-10 text-blue-100 opacity-50"
+          >
+            <FlaskConical size={140} />
+          </motion.div>
 
-          <div className="grid grid-cols-4 gap-3 flex-1">
-            <StepCard step={1} icon={<ShieldAlert size={20} />} text="Vi khuẩn vào cơ thể" delay={0.4} />
-            <StepCard step={2} icon={<BellRing size={20} />} text="Hệ miễn dịch báo động" delay={0.6} />
-            <StepCard step={3} icon={<Swords size={20} />} text="Cơ thể gửi tế bào miễn dịch đến" delay={0.8} />
-            <StepCard step={4} icon={<Target size={20} />} text="Tấn công vi khuẩn VÀ tế bào ung thư ở gần đó" delay={1.0} highlight />
+          <div className="flex items-center gap-4 mb-6 text-blue-800 relative z-10">
+            <div className="p-3 bg-blue-100 rounded-2xl shadow-inner">
+              <FlaskConical size={32} />
+            </div>
+            <h3 className="font-bold text-2xl">Phương pháp (1893)</h3>
+          </div>
+          <div className="flex flex-col gap-4 relative z-10">
+            <div className="p-4 bg-white/80 rounded-2xl shadow-sm border border-blue-100 flex items-center gap-4">
+              <div className="w-10 h-10 rounded-full bg-blue-500 flex items-center justify-center text-white font-bold">1</div>
+              <p className="text-lg font-medium">Lấy vi khuẩn</p>
+            </div>
+            <div className="p-4 bg-white/80 rounded-2xl shadow-sm border border-blue-100 flex items-center gap-4">
+              <div className="w-10 h-10 rounded-full bg-blue-500 flex items-center justify-center text-white font-bold">2</div>
+              <p className="text-lg font-medium">Đun chết (an toàn hơn)</p>
+            </div>
+            <div className="p-4 bg-white/80 rounded-2xl shadow-sm border border-blue-100 flex items-center gap-4">
+              <div className="w-10 h-10 rounded-full bg-blue-500 flex items-center justify-center text-white font-bold">3</div>
+              <p className="text-lg font-medium">Tiêm vào khối u</p>
+            </div>
           </div>
         </motion.div>
 
-        {/* Analogy */}
+        {/* Result */}
         <motion.div 
-          initial={{ opacity: 0, x: 20 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ delay: 0.8, type: "spring" }}
-          className="w-1/3 glass-card p-6 bg-gradient-to-br from-amber-50 to-orange-50 border-amber-200 flex flex-col justify-center shadow-2xl"
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 0.4 }}
+          className="w-1/2 glass-card p-8 bg-gradient-to-br from-amber-50 to-orange-50 border-amber-200 flex flex-col items-center text-center shadow-2xl relative overflow-hidden"
         >
           <motion.div 
             animate={{ scale: [1, 1.1, 1] }} 
-            transition={{ duration: 2, repeat: Infinity }}
-            className="p-3 bg-amber-100 text-amber-600 rounded-2xl w-fit mb-4 shadow-inner"
+            transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+            className="absolute -top-10 -left-10 text-amber-200 opacity-50"
           >
-            <Lightbulb size={28} />
+            <Lightbulb size={140} />
           </motion.div>
-          <h4 className="font-bold text-lg text-amber-900 mb-3">Ví dụ dễ hiểu</h4>
-          <p className="text-base text-amber-800 leading-relaxed">
-            Vi khuẩn đóng vai trò là <span className="font-bold text-lg text-amber-600">"mồi nhử"</span> để kéo hệ miễn dịch đến tận nơi và bắt chúng phải nhìn vào khối u mà bình thường chúng sẽ lờ đi.
-          </p>
+
+          <div className="p-4 bg-amber-100 text-amber-600 rounded-full mb-6 shadow-inner relative z-10">
+            <Lightbulb size={32} />
+          </div>
+          <h3 className="font-display text-3xl font-bold text-amber-900 mb-8 relative z-10">Kết quả (40 năm)</h3>
+          
+          <div className="space-y-6 relative z-10 w-full">
+            <div className="bg-white/80 p-6 rounded-3xl shadow-md border border-amber-100 transform hover:scale-105 transition-transform">
+              <p className="font-bold text-amber-900 text-3xl mb-1">1.000+</p>
+              <p className="text-lg text-amber-700 font-medium">bệnh nhân được điều trị</p>
+            </div>
+            <div className="bg-white/80 p-6 rounded-3xl shadow-md border border-amber-100 transform hover:scale-105 transition-transform">
+              <p className="font-bold text-amber-900 text-3xl mb-1">10–20%</p>
+              <p className="text-lg text-amber-700 font-medium">khỏi hoàn toàn</p>
+            </div>
+          </div>
         </motion.div>
       </div>
     </div>
@@ -71,62 +90,53 @@ export function Slide5A() {
 
 export function Slide5B() {
   return (
-    <div className="w-full h-full flex flex-col p-6 bg-white/40 relative overflow-hidden">
+    <div className="w-full h-full flex flex-col p-8 bg-white/40 relative overflow-hidden">
       <motion.h2 
         initial={{ opacity: 0, x: -20 }}
         animate={{ opacity: 1, x: 0 }}
-        className="font-display text-3xl font-bold text-gray-900 mb-6"
+        className="font-display text-3xl font-bold text-gray-900 mb-8 flex items-center gap-3"
       >
-        Nghiên cứu hiện đại
+        <Dna className="text-blue-500" size={32} />
+        Cơ chế hoạt động & Xác nhận hiện đại
       </motion.h2>
 
-      <div className="flex flex-col flex-1 justify-center">
+      <div className="flex gap-8 flex-1">
+        {/* Mechanism */}
         <motion.div 
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.2, type: "spring" }}
-          className="glass-card p-6 flex flex-col gap-6 bg-gradient-to-r from-indigo-50 to-blue-50 shadow-2xl relative overflow-hidden"
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.2 }}
+          className="w-2/3 glass-card p-8 flex flex-col shadow-2xl relative overflow-hidden"
         >
-          <motion.div 
-            animate={{ rotate: 360 }} 
-            transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
-            className="absolute -top-16 -right-16 text-indigo-100 opacity-50"
-          >
-            <Dna size={160} />
-          </motion.div>
-
-          <div className="flex items-center gap-5 relative z-10">
-            <motion.div 
-              animate={{ y: [0, -10, 0] }} 
-              transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-              className="p-4 bg-white rounded-full shadow-xl text-indigo-500 shrink-0 border-4 border-indigo-100"
-            >
-              <FlaskConical size={40} />
+          <div className="flex items-center gap-4 mb-6 text-blue-600">
+            <motion.div animate={{ rotate: [0, 15, -15, 0] }} transition={{ duration: 2, repeat: Infinity }}>
+              <BellRing size={32} />
             </motion.div>
-            
-            <div>
-              <div className="flex items-center gap-3 mb-1.5">
-                <span className="px-2.5 py-0.5 bg-indigo-200 text-indigo-900 rounded-full font-mono text-base font-bold shadow-inner">Năm 2013</span>
-                <h3 className="font-bold text-2xl text-gray-800">Phân tích lại</h3>
-              </div>
-              <p className="text-lg text-gray-600">Các nhà khoa học phân tích lại ca bệnh của Coley bằng phương pháp hiện đại.</p>
-            </div>
+            <h3 className="font-display text-2xl font-bold">Vi khuẩn đóng vai "mồi nhử"</h3>
           </div>
-
-          <div className="flex gap-5 relative z-10">
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.6 }}
-              className="flex-1 bg-white/80 backdrop-blur-md p-5 rounded-xl border border-indigo-200 shadow-lg"
-            >
-              <p className="text-base font-medium text-indigo-900 leading-relaxed">Một số ca bệnh hiệu quả tương đương điều trị hiện đại</p>
-            </motion.div>
-            <motion.div 
-              initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.8 }}
-              className="flex-1 bg-white/80 backdrop-blur-md p-5 rounded-xl border border-indigo-200 shadow-lg"
-            >
-              <p className="text-base font-medium text-indigo-900 leading-relaxed">Nhiều công ty đang phát triển lại phương pháp này</p>
-            </motion.div>
+          
+          <div className="grid grid-cols-4 gap-4 flex-1">
+            <StepCard step={1} icon={<ShieldAlert size={24} />} text="Vi khuẩn vào cơ thể" delay={0.4} />
+            <StepCard step={2} icon={<BellRing size={24} />} text="Hệ miễn dịch báo động" delay={0.6} />
+            <StepCard step={3} icon={<Swords size={24} />} text="Gửi tế bào miễn dịch đến" delay={0.8} />
+            <StepCard step={4} icon={<Target size={24} />} text="Tiêu diệt luôn tế bào ung thư" delay={1.0} highlight />
           </div>
+        </motion.div>
+
+        {/* Modern Analysis */}
+        <motion.div 
+          initial={{ opacity: 0, x: 20 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ delay: 0.8 }}
+          className="w-1/3 glass-card p-8 bg-gradient-to-br from-indigo-50 to-blue-50 border-indigo-200 flex flex-col justify-center shadow-2xl relative overflow-hidden"
+        >
+          <div className="flex items-center gap-3 mb-6">
+            <span className="px-3 py-1 bg-indigo-200 text-indigo-900 rounded-xl font-mono text-lg font-bold shadow-inner">2013</span>
+            <h4 className="font-bold text-xl text-indigo-900">Đại học Yale</h4>
+          </div>
+          <p className="text-xl text-indigo-800 leading-relaxed font-medium">
+            Phân tích lại 896 ca bệnh: Xác nhận tỷ lệ khỏi <span className="text-indigo-600 font-bold">tương đương điều trị hiện đại</span> với một số loại ung thư.
+          </p>
         </motion.div>
       </div>
     </div>
@@ -139,15 +149,15 @@ function StepCard({ step, icon, text, delay, highlight = false }: any) {
       initial={{ opacity: 0, scale: 0.8 }}
       animate={{ opacity: 1, scale: 1 }}
       transition={{ delay, type: "spring", bounce: 0.5 }}
-      className={`relative p-3 rounded-2xl flex flex-col items-center text-center ${highlight ? 'bg-blue-500 text-white shadow-xl shadow-blue-500/40' : 'bg-white border border-gray-100 shadow-lg'}`}
+      className={`relative p-4 rounded-3xl flex flex-col items-center text-center ${highlight ? 'bg-blue-500 text-white shadow-xl shadow-blue-500/40' : 'bg-white border border-gray-100 shadow-lg'}`}
     >
-      <div className={`absolute -top-2.5 -left-2.5 w-7 h-7 rounded-full flex items-center justify-center font-bold text-sm shadow-md ${highlight ? 'bg-white text-blue-600' : 'bg-gray-100 text-gray-500'}`}>
+      <div className={`absolute -top-3 -left-3 w-8 h-8 rounded-full flex items-center justify-center font-bold text-sm shadow-md ${highlight ? 'bg-white text-blue-600' : 'bg-gray-100 text-gray-500'}`}>
         {step}
       </div>
-      <div className={`mb-3 p-2.5 rounded-xl ${highlight ? 'bg-white/20' : 'bg-blue-50 text-blue-600'}`}>
+      <div className={`mb-4 p-3 rounded-2xl ${highlight ? 'bg-white/20' : 'bg-blue-50 text-blue-600'}`}>
         {icon}
       </div>
-      <p className={`text-sm font-medium leading-snug ${highlight ? 'text-white' : 'text-gray-700'}`}>{text}</p>
+      <p className={`text-sm font-bold leading-snug ${highlight ? 'text-white' : 'text-gray-700'}`}>{text}</p>
     </motion.div>
   );
 }

@@ -34,10 +34,9 @@ export default function Slide1() {
           </div>
         </div>
 
-        <h1 className="font-display text-4xl font-bold tracking-tight text-gray-900 mb-4 leading-tight">
+        <h1 className="font-display text-4xl font-bold tracking-tight text-gray-900 mb-6 leading-tight">
           Ứng dụng của <br />
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600">Công nghệ Vi sinh</span> <br />
-          trong Y học
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-indigo-600 to-purple-600">Vi sinh vật trong y học</span>
         </h1>
 
         <div className="w-16 h-1 bg-gradient-to-r from-blue-500 to-indigo-500 rounded-full mb-6" />

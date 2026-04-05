@@ -1,165 +1,98 @@
 import React from 'react';
 import { motion } from 'motion/react';
-import { HeartPulse, Syringe, GraduationCap, ArrowRight, Activity, ShieldAlert, Sparkles } from 'lucide-react';
+import { Shield, Activity, Target, Sparkles, Microscope } from 'lucide-react';
 
 export function Slide6A() {
   return (
-    <div className="w-full h-full flex flex-col p-6 bg-white/40 relative overflow-hidden">
+    <div className="w-full h-full flex flex-col p-8 bg-white/40 relative overflow-hidden">
       <motion.h2 
         initial={{ opacity: 0, x: -20 }}
         animate={{ opacity: 1, x: 0 }}
-        className="font-display text-3xl font-bold text-gray-900 mb-6"
+        className="font-display text-3xl font-bold text-gray-900 mb-8 flex items-center gap-3"
       >
-        Câu chuyện Emily - Bé gái 6 tuổi
+        <Target className="text-blue-500" size={32} />
+        Ứng dụng điều trị ung thư hiện nay
       </motion.h2>
 
-      <div className="flex gap-6 flex-1">
-        {/* The Crisis */}
-        <motion.div 
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.2 }}
-          className="w-1/3 glass-card p-6 bg-gradient-to-br from-rose-50 to-red-50 border-rose-200 flex flex-col shadow-2xl relative overflow-hidden"
-        >
-          <motion.div 
-            animate={{ scale: [1, 1.2, 1], opacity: [0.3, 0.6, 0.3] }} 
-            transition={{ duration: 4, repeat: Infinity }}
-            className="absolute -top-10 -right-10 text-rose-200"
-          >
-            <ShieldAlert size={100} />
-          </motion.div>
-
-          <div className="flex items-center gap-3 mb-4 relative z-10">
-            <span className="px-2.5 py-0.5 bg-rose-200 text-rose-900 rounded-full font-mono text-base font-bold shadow-inner">Năm 2012</span>
-            <h3 className="font-bold text-xl text-rose-900">Tình trạng nguy kịch</h3>
-          </div>
-          <ul className="space-y-3 text-rose-800 font-medium flex-1 text-base relative z-10">
-            <motion.li initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.4 }} className="flex items-start gap-2">
-              <div className="w-2 h-2 rounded-full bg-rose-500 mt-2 shrink-0" />
-              <span>Emily Whitehead (6 tuổi) bị ung thư máu.</span>
-            </motion.li>
-            <motion.li initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.5 }} className="flex items-start gap-2">
-              <div className="w-2 h-2 rounded-full bg-rose-500 mt-2 shrink-0" />
-              <span>Đã thử 2 đợt hóa trị liệu. Không hiệu quả.</span>
-            </motion.li>
-            <motion.li 
-              initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.6 }}
-              className="p-3 bg-white/80 backdrop-blur-sm rounded-xl mt-3 italic border border-rose-200 shadow-lg text-rose-900"
-            >
-              Bác sĩ nói: "Không còn cách nào khác."
-            </motion.li>
-          </ul>
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.8 }}
-            className="mt-4 p-3 bg-rose-500 text-white rounded-xl text-base font-bold shadow-xl relative z-10"
-          >
-            Cha mẹ Emily không bỏ cuộc, tìm đến một thử nghiệm mới.
-          </motion.div>
-        </motion.div>
-
-        {/* The Method */}
-        <motion.div 
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.4 }}
-          className="w-2/3 glass-card p-6 bg-gradient-to-br from-blue-50 to-indigo-50 border-blue-200 shadow-2xl flex flex-col"
-        >
-          <div className="flex items-center gap-3 mb-6 text-blue-800">
-            <motion.div animate={{ rotate: 360 }} transition={{ duration: 10, repeat: Infinity, ease: "linear" }}>
-              <Activity size={28} />
-            </motion.div>
-            <h3 className="font-bold text-xl">Phương pháp điều trị (CAR-T)</h3>
-          </div>
-          
-          <div className="flex items-center justify-between gap-2.5 flex-1">
-            <MethodStep icon={<Syringe size={20} />} text="Lấy máu ra" delay={0.6} />
-            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.7 }}><ArrowRight size={20} className="text-blue-300 shrink-0" /></motion.div>
-            <MethodStep icon={<HeartPulse size={20} />} text="Dùng virus 'dạy' tế bào miễn dịch" delay={0.8} highlight />
-            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.9 }}><ArrowRight size={20} className="text-blue-300 shrink-0" /></motion.div>
-            <MethodStep icon={<Activity size={20} />} text="Tế bào học cách diệt ung thư" delay={1.0} />
-            <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.1 }}><ArrowRight size={20} className="text-blue-300 shrink-0" /></motion.div>
-            <MethodStep icon={<Syringe size={20} className="rotate-180" />} text="Đưa lại vào cơ thể" delay={1.2} />
-          </div>
-        </motion.div>
+      <div className="grid grid-cols-3 gap-6 flex-1">
+        <ModernAppCard 
+          icon={<Shield size={32} />}
+          title="BCG"
+          color="blue"
+          delay={0.2}
+          items={[
+            "Vi khuẩn lao đã làm yếu",
+            "Điều trị ung thư bàng quang",
+            "Liệu pháp tiêu chuẩn toàn cầu"
+          ]}
+          bgIcon={<Shield size={120} />}
+        />
+        <ModernAppCard 
+          icon={<Activity size={32} />}
+          title="T-VEC"
+          color="purple"
+          delay={0.4}
+          items={[
+            "Virus được chỉnh sửa gene",
+            "Tiêm thẳng vào khối u",
+            "Tiêu diệt ung thư da"
+          ]}
+          bgIcon={<Activity size={120} />}
+        />
+        <ModernAppCard 
+          icon={<Microscope size={32} />}
+          title="Clostridium"
+          color="rose"
+          delay={0.6}
+          items={[
+            "Sống trong môi trường thiếu oxy",
+            "Chỉ tấn công bên trong khối u",
+            "Thử nghiệm: Khối u biến mất hoàn toàn"
+          ]}
+          bgIcon={<Microscope size={120} />}
+        />
       </div>
     </div>
   );
 }
 
-export function Slide6B() {
-  return (
-    <div className="w-full h-full flex flex-col p-6 bg-white/40 relative overflow-hidden">
-      <motion.h2 
-        initial={{ opacity: 0, x: -20 }}
-        animate={{ opacity: 1, x: 0 }}
-        className="font-display text-3xl font-bold text-gray-900 mb-6"
-      >
-        Kết quả kỳ diệu
-      </motion.h2>
+function ModernAppCard({ icon, title, items, color, delay, bgIcon }: any) {
+  const colorStyles = {
+    blue: "from-blue-50 to-indigo-50 border-blue-200 text-blue-600 bg-blue-100",
+    purple: "from-purple-50 to-fuchsia-50 border-purple-200 text-purple-600 bg-purple-100",
+    rose: "from-rose-50 to-pink-50 border-rose-200 text-rose-600 bg-rose-100",
+  }[color as string];
 
-      <div className="flex flex-col flex-1 justify-center">
-        <motion.div 
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.2, type: "spring" }}
-          className="glass-card p-8 bg-gradient-to-br from-emerald-50 to-teal-50 border-emerald-200 shadow-2xl flex flex-col justify-center relative overflow-hidden"
-        >
-          {/* 3D Floating Elements */}
-          <motion.div 
-            animate={{ y: [0, -20, 0], rotate: [0, 10, 0] }} 
-            transition={{ duration: 5, repeat: Infinity, ease: "easeInOut" }}
-            className="absolute top-10 left-10 text-emerald-200 opacity-50"
-          >
-            <Sparkles size={64} />
-          </motion.div>
-
-          <div className="flex gap-6 items-center justify-center relative z-10">
-            <motion.div 
-              initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.4 }}
-              className="flex-1 bg-white/90 backdrop-blur-md p-6 rounded-2xl shadow-xl border border-emerald-100 text-center transform transition-transform hover:scale-105"
-            >
-              <p className="text-emerald-600 font-bold mb-2 uppercase tracking-widest text-sm">Sau 23 ngày</p>
-              <p className="text-2xl font-display font-bold text-gray-800 leading-tight">Không còn tế bào ung thư nào!</p>
-            </motion.div>
-            
-            <motion.div 
-              initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.6 }}
-              className="flex-1 bg-white/90 backdrop-blur-md p-6 rounded-2xl shadow-xl border border-emerald-100 text-center relative overflow-hidden transform transition-transform hover:scale-105"
-            >
-              <div className="absolute top-0 right-0 p-3 opacity-10 text-emerald-500">
-                <GraduationCap size={64} />
-              </div>
-              <p className="text-emerald-600 font-bold mb-2 uppercase tracking-widest text-sm relative z-10">Năm 2024 (Sau 12 năm)</p>
-              <p className="text-2xl font-display font-bold text-gray-800 leading-tight relative z-10">Emily 18 tuổi, khỏe mạnh, đang học đại học</p>
-            </motion.div>
-          </div>
-
-          <motion.div 
-            initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.8 }}
-            className="mt-8 text-center"
-          >
-            <p className="text-xl text-emerald-800 font-medium leading-relaxed">
-              Emily là <span className="font-bold bg-emerald-200 px-2.5 py-1 rounded-xl shadow-sm inline-block mx-2">người đầu tiên trên thế giới</span> được chữa khỏi bằng phương pháp này.
-            </p>
-          </motion.div>
-        </motion.div>
-      </div>
-    </div>
-  );
-}
-
-function MethodStep({ icon, text, delay, highlight = false }: any) {
   return (
     <motion.div 
-      initial={{ opacity: 0, scale: 0.8 }}
-      animate={{ opacity: 1, scale: 1 }}
-      transition={{ delay, type: "spring", bounce: 0.5 }}
-      className={`flex-1 flex flex-col items-center text-center p-3 rounded-2xl h-full justify-center ${highlight ? 'bg-blue-500 text-white shadow-xl shadow-blue-500/40' : 'bg-white text-blue-900 border border-blue-100 shadow-lg'}`}
+      initial={{ opacity: 0, y: 30 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ delay, type: "spring", stiffness: 100 }}
+      className={`glass-card p-6 bg-gradient-to-br ${colorStyles?.split(' ')[0]} ${colorStyles?.split(' ')[1]} ${colorStyles?.split(' ')[2]} flex flex-col h-full shadow-2xl relative overflow-hidden`}
     >
-      <div className={`mb-2 p-2.5 rounded-full ${highlight ? 'bg-white/20 text-white' : 'bg-blue-50 text-blue-500'}`}>
-        {icon}
+      <motion.div 
+        animate={{ rotate: [0, 5, -5, 0], scale: [1, 1.05, 1] }} 
+        transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+        className={`absolute -bottom-10 -right-10 ${colorStyles?.split(' ')[3]} opacity-20`}
+      >
+        {bgIcon}
+      </motion.div>
+
+      <div className="flex items-center gap-4 mb-6 relative z-10">
+        <div className={`p-3 rounded-2xl shadow-inner ${colorStyles?.split(' ')[4]} ${colorStyles?.split(' ')[3]}`}>
+          {icon}
+        </div>
+        <h3 className="font-bold text-2xl text-gray-800">{title}</h3>
       </div>
-      <p className="text-sm font-bold leading-snug">{text}</p>
+      
+      <ul className="space-y-4 flex-1 relative z-10 bg-white/60 p-6 rounded-3xl border border-white/50">
+        {items.map((item: string, idx: number) => (
+          <li key={idx} className="flex items-start gap-3 text-lg">
+            <div className={`w-3 h-3 rounded-full mt-2.5 shrink-0 ${colorStyles?.split(' ')[3].replace('text-', 'bg-')}`} />
+            <span className="text-gray-700 font-medium leading-relaxed">{item}</span>
+          </li>
+        ))}
+      </ul>
     </motion.div>
   );
 }
