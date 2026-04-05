@@ -47,6 +47,9 @@ export default function Presentation() {
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
+      // Disable slide navigation keys when on the game slide (index 33)
+      if (currentSlide === 33) return;
+
       if (e.key === 'ArrowRight' || e.key === 'Space') {
         nextSlide();
       } else if (e.key === 'ArrowLeft') {

@@ -21,7 +21,7 @@ export function Slide8A() {
       </motion.h2>
 
       <div className="flex gap-6 flex-1">
-        {/* The Story */}
+        {/* General Stats */}
         <motion.div 
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -37,13 +37,34 @@ export function Slide8A() {
           </motion.div>
 
           <h3 className="font-bold text-xl text-red-800 mb-4 flex items-center gap-2.5 relative z-10">
-            <Skull size={24} />
-            Câu chuyện đáng sợ (2016)
+            <TrendingUp size={24} />
+            Thực trạng hiện nay
           </h3>
-          <div className="space-y-3 text-red-900 font-medium text-lg relative z-10">
-            <motion.p initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.4 }}>• Bà cụ 70 tuổi ở Mỹ bị nhiễm vi khuẩn.</motion.p>
-            <motion.p initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.5 }}>• Bác sĩ thử <span className="font-bold text-red-600 bg-red-100 px-2 py-0.5 rounded-lg shadow-sm">26 loại kháng sinh</span> khác nhau.</motion.p>
-            <motion.p initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.6 }}>• Không loại nào có tác dụng. Bà cụ qua đời.</motion.p>
+          <div className="space-y-4 text-red-900 font-medium text-lg relative z-10">
+            <motion.div 
+              initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.4 }}
+              className="bg-white/60 p-3 rounded-xl border border-red-100 shadow-sm"
+            >
+              <p className="text-sm uppercase text-red-500 font-bold mb-1">Mỗi năm</p>
+              <p className="text-2xl font-black text-red-700">700.000 người</p>
+              <p className="text-base">tử vong do vi khuẩn kháng thuốc.</p>
+            </motion.div>
+            
+            <motion.div 
+              initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.5 }}
+              className="bg-white/60 p-3 rounded-xl border border-red-100 shadow-sm"
+            >
+              <p className="text-sm uppercase text-red-500 font-bold mb-1">Đến năm 2050</p>
+              <p className="text-2xl font-black text-red-700">10 triệu người</p>
+              <p className="text-base">có thể tử vong mỗi năm nếu không có giải pháp.</p>
+            </motion.div>
+
+            <motion.p 
+              initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.6 }}
+              className="text-base italic text-red-600 bg-red-100/50 p-2 rounded-lg"
+            >
+              "Kháng kháng sinh là một trong những mối đe dọa lớn nhất đối với sức khỏe toàn cầu."
+            </motion.p>
           </div>
         </motion.div>
 
@@ -98,14 +119,14 @@ export function Slide8B() {
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ delay: 0.2, type: "spring" }}
-          className="glass-card p-6 bg-gradient-to-br from-gray-900 to-slate-800 text-white flex flex-col shadow-2xl h-[450px]"
+          className="glass-card p-6 bg-gradient-to-br from-gray-900 to-slate-800 text-white flex flex-col shadow-2xl h-[480px]"
         >
-          <div className="mb-4 text-center">
+          <div className="mb-2 text-center">
             <h3 className="font-display text-2xl font-bold text-white mb-1">Dự đoán số người tử vong</h3>
             <p className="text-lg text-gray-400">Mỗi năm do vi khuẩn kháng thuốc</p>
           </div>
 
-          <div className="flex-1 w-full min-h-[200px]">
+          <div className="flex-1 w-full min-h-[180px]">
             <ResponsiveContainer width="100%" height="100%">
               <BarChart data={data} margin={{ top: 10, right: 20, left: 0, bottom: 0 }}>
                 <XAxis dataKey="name" stroke="#94a3b8" tick={{ fill: '#f8fafc', fontSize: 12, fontWeight: 500 }} />
@@ -122,7 +143,7 @@ export function Slide8B() {
             </ResponsiveContainer>
           </div>
 
-          <div className="mt-6 flex justify-between items-end px-6">
+          <div className="mt-4 flex justify-between items-end px-6">
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.6 }} className="text-center">
               <p className="text-3xl font-display font-bold text-blue-400 drop-shadow-lg">700,000</p>
               <p className="text-base text-gray-400 mt-0.5">Hiện nay</p>
@@ -135,12 +156,12 @@ export function Slide8B() {
 
           <motion.div 
             initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 1.0 }}
-            className="mt-6 p-3 bg-red-500/20 border border-red-500/30 rounded-xl text-center"
+            className="mt-8 p-3 bg-red-500/20 border border-red-500/30 rounded-xl text-center"
           >
-            <p className="text-red-200 text-lg font-medium flex items-center justify-center gap-2.5">
+            <div className="text-red-200 text-lg font-medium flex items-center justify-center gap-2.5">
               <motion.div animate={{ y: [0, -5, 0] }} transition={{ duration: 1, repeat: Infinity }}><TrendingUp size={20} /></motion.div>
               Dự đoán sẽ nhiều hơn cả tử vong do ung thư!
-            </p>
+            </div>
           </motion.div>
         </motion.div>
       </div>

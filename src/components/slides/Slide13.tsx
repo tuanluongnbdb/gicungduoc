@@ -18,7 +18,7 @@ export function Slide13A() {
         className="font-display text-3xl font-bold text-gray-900 mb-6 flex items-center gap-3"
       >
         <Globe className="text-blue-500" size={28} />
-        Penicillin cứu thế giới (Phần 1)
+        Penicillin cứu thế giới
       </motion.h2>
 
       <div className="flex flex-col gap-4 flex-1">
@@ -130,7 +130,7 @@ export function Slide13B() {
         className="font-display text-3xl font-bold text-gray-900 mb-6 flex items-center gap-3"
       >
         <Globe className="text-blue-500" size={28} />
-        Penicillin cứu thế giới (Phần 2)
+        Penicillin cứu thế giới
       </motion.h2>
 
       <div className="flex flex-col gap-4 flex-1">

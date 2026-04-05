@@ -10,7 +10,7 @@ export function Slide12A() {
         animate={{ opacity: 1, x: 0 }}
         className="font-display text-3xl font-bold text-gray-900 mb-6"
       >
-        Bệnh nhân đầu tiên dùng Penicillin (Phần 1)
+        Bệnh nhân đầu tiên dùng Penicillin
       </motion.h2>
 
       <div className="flex gap-6 flex-1">
@@ -125,7 +125,7 @@ export function Slide12B() {
         animate={{ opacity: 1, x: 0 }}
         className="font-display text-3xl font-bold text-gray-900 mb-6"
       >
-        Bệnh nhân đầu tiên dùng Penicillin (Phần 2)
+        Bệnh nhân đầu tiên dùng Penicillin
       </motion.h2>
 
       <div className="flex gap-6 flex-1">

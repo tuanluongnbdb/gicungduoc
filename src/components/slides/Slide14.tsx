@@ -11,7 +11,7 @@ export function Slide14A() {
         className="font-display text-3xl font-bold text-gray-900 mb-8 flex items-center gap-4"
       >
         <Droplet className="text-blue-500" size={36} />
-        Insulin - Từ lợn đến vi khuẩn (Phần 1)
+        Insulin - Từ lợn đến vi khuẩn
       </motion.h2>
 
       <div className="flex gap-6 flex-1">
@@ -93,7 +93,7 @@ export function Slide14B() {
         className="font-display text-3xl font-bold text-gray-900 mb-8 flex items-center gap-4"
       >
         <Droplet className="text-blue-500" size={36} />
-        Insulin - Từ lợn đến vi khuẩn (Phần 2)
+        Insulin - Từ lợn đến vi khuẩn
       </motion.h2>
 
       <div className="flex gap-6 flex-1">

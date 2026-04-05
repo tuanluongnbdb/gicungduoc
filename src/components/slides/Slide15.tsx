@@ -11,7 +11,7 @@ export function Slide15A() {
         className="font-display text-3xl font-bold text-gray-900 mb-6 flex items-center gap-3"
       >
         <Sparkles className="text-purple-500" size={28} />
-        Một vài ứng dụng khác (Phần 1)
+        Một vài ứng dụng khác
       </motion.h2>
 
       <div className="grid grid-cols-3 gap-4 flex-1">
@@ -64,7 +64,7 @@ export function Slide15B() {
         className="font-display text-3xl font-bold text-gray-900 mb-6 flex items-center gap-3"
       >
         <Sparkles className="text-purple-500" size={28} />
-        Một vài ứng dụng khác (Phần 2)
+        Một vài ứng dụng khác
       </motion.h2>
 
       <div className="flex justify-center gap-6 flex-1 items-center">

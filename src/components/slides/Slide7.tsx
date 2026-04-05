@@ -10,7 +10,7 @@ export function Slide7A() {
         animate={{ opacity: 1, x: 0 }}
         className="font-display text-3xl font-bold text-gray-900 mb-6"
       >
-        Vi sinh vật điều trị ung thư - Ngày nay (Phần 1)
+        Vi sinh vật điều trị ung thư - Ngày nay
       </motion.h2>
 
       <div className="flex gap-6 flex-1">
@@ -38,7 +38,7 @@ export function Slide7A() {
             "Được Mỹ chấp thuận từ 2015",
             "Hơn 5,000 bệnh nhân đã sử dụng"
           ]}
-          animationType="spin"
+          animationType="pulse"
         />
       </div>
     </div>
@@ -53,7 +53,7 @@ export function Slide7B() {
         animate={{ opacity: 1, x: 0 }}
         className="font-display text-3xl font-bold text-gray-900 mb-6"
       >
-        Vi sinh vật điều trị ung thư - Ngày nay (Phần 2)
+        Vi sinh vật điều trị ung thư - Ngày nay
       </motion.h2>
 
       <div className="flex flex-col gap-6 flex-1">
@@ -81,6 +81,41 @@ export function Slide7B() {
           transition={{ delay: 0.6 }}
           className="h-1/2 glass-card p-6 bg-gradient-to-r from-gray-900 to-slate-800 text-white flex items-center justify-between shadow-2xl relative overflow-hidden"
         >
+          {/* Microorganism Background Elements */}
+          <motion.div 
+            animate={{ 
+              x: [0, 50, 0, -50, 0],
+              y: [0, 30, 0, -30, 0],
+              rotate: 360
+            }}
+            transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+            className="absolute top-10 left-10 text-blue-500/20 pointer-events-none"
+          >
+            <Bug size={60} />
+          </motion.div>
+          <motion.div 
+            animate={{ 
+              x: [0, -40, 0, 40, 0],
+              y: [0, 50, 0, -50, 0],
+              rotate: -360
+            }}
+            transition={{ duration: 30, repeat: Infinity, ease: "linear" }}
+            className="absolute bottom-10 right-1/4 text-emerald-500/20 pointer-events-none"
+          >
+            <Activity size={80} />
+          </motion.div>
+          <motion.div 
+            animate={{ 
+              x: [0, 30, 0, -30, 0],
+              y: [0, -40, 0, 40, 0],
+              scale: [1, 1.2, 1]
+            }}
+            transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+            className="absolute top-1/2 left-1/3 text-purple-500/10 pointer-events-none"
+          >
+            <Shield size={100} />
+          </motion.div>
+
           <motion.div 
             animate={{ scale: [1, 1.5, 1], opacity: [0.1, 0.3, 0.1] }} 
             transition={{ duration: 5, repeat: Infinity }}

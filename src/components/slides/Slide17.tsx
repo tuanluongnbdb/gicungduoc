@@ -11,11 +11,11 @@ export function Slide17A() {
         className="font-display text-3xl font-bold text-gray-900 mb-6 flex items-center gap-3"
       >
         <Star className="text-yellow-500" size={28} />
-        Tổng kết (Phần 1)
+        Tổng kết
       </motion.h2>
 
-      <div className="flex gap-4 flex-1">
-        {/* Stories */}
+      <div className="flex gap-4 flex-1 mt-4">
+        {/* Summary of Knowledge & Applications */}
         <motion.div 
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
@@ -34,30 +34,48 @@ export function Slide17A() {
             <div className="p-2 bg-blue-100 rounded-xl shadow-inner">
               <BookOpen size={28} />
             </div>
-            <h3 className="font-bold text-2xl">Những câu chuyện truyền cảm hứng</h3>
+            <h3 className="font-bold text-2xl">Tổng hợp kiến thức & Ứng dụng chính</h3>
           </div>
-          <ul className="space-y-3 text-base text-gray-700 relative z-10 bg-white/60 p-4 rounded-2xl border border-blue-100">
-            <li className="flex items-start gap-2.5">
-              <CheckCircle2 size={20} className="text-blue-500 mt-1 shrink-0" />
-              <span><span className="font-bold text-blue-900">Bác sĩ Coley:</span> Phát hiện vi khuẩn chống ung thư (1891)</span>
-            </li>
-            <li className="flex items-start gap-2.5">
-              <CheckCircle2 size={20} className="text-blue-500 mt-1 shrink-0" />
-              <span><span className="font-bold text-blue-900">Fleming:</span> Tình cờ phát hiện penicillin từ nấm mốc (1928)</span>
-            </li>
-            <li className="flex items-start gap-2.5">
-              <CheckCircle2 size={20} className="text-blue-500 mt-1 shrink-0" />
-              <span><span className="font-bold text-blue-900">Emily (6 tuổi):</span> Được cứu sống bằng virus biến đổi (2012)</span>
-            </li>
-            <li className="flex items-start gap-2.5">
-              <CheckCircle2 size={20} className="text-blue-500 mt-1 shrink-0" />
-              <span><span className="font-bold text-blue-900">Giáo sư Tom:</span> Thoát chết nhờ liệu pháp thực khuẩn thể (2016)</span>
-            </li>
-            <li className="flex items-start gap-2.5">
-              <CheckCircle2 size={20} className="text-blue-500 mt-1 shrink-0" />
-              <span><span className="font-bold text-blue-900 text-base">Insulin:</span> Từ vi khuẩn cứu 70 triệu người</span>
-            </li>
-          </ul>
+          <div className="grid grid-cols-2 gap-4 relative z-10">
+            <div className="space-y-3 bg-white/60 p-4 rounded-2xl border border-blue-100">
+              <h4 className="font-bold text-blue-900 border-b border-blue-200 pb-1 mb-2">Kiến thức cốt lõi</h4>
+              <ul className="space-y-2 text-sm text-gray-700">
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 size={16} className="text-blue-500 mt-0.5 shrink-0" />
+                  <span>Vi sinh vật không chỉ gây bệnh mà còn là "nhà máy" sản xuất thuốc.</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 size={16} className="text-blue-500 mt-0.5 shrink-0" />
+                  <span>Cơ chế: Sử dụng vi khuẩn/virus để tấn công trực tiếp mầm bệnh hoặc kích thích miễn dịch.</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 size={16} className="text-blue-500 mt-0.5 shrink-0" />
+                  <span>Di truyền học: Biến đổi gene vi sinh vật để tạo ra các chất quý (Insulin, Hormone).</span>
+                </li>
+              </ul>
+            </div>
+            <div className="space-y-3 bg-white/60 p-4 rounded-2xl border border-blue-100">
+              <h4 className="font-bold text-blue-900 border-b border-blue-200 pb-1 mb-2">Ứng dụng tiêu biểu</h4>
+              <ul className="space-y-2 text-sm text-gray-700">
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 size={16} className="text-blue-500 mt-0.5 shrink-0" />
+                  <span><span className="font-bold">Điều trị ung thư:</span> Liệu pháp miễn dịch, T-VEC, BCG.</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 size={16} className="text-blue-500 mt-0.5 shrink-0" />
+                  <span><span className="font-bold">Kháng sinh:</span> Penicillin và các loại thuốc diệt khuẩn.</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 size={16} className="text-blue-500 mt-0.5 shrink-0" />
+                  <span><span className="font-bold">Liệu pháp Phage:</span> Dùng virus diệt vi khuẩn kháng thuốc.</span>
+                </li>
+                <li className="flex items-start gap-2">
+                  <CheckCircle2 size={16} className="text-blue-500 mt-0.5 shrink-0" />
+                  <span><span className="font-bold">Sản xuất sinh phẩm:</span> Vaccine, Insulin, Vitamin.</span>
+                </li>
+              </ul>
+            </div>
+          </div>
         </motion.div>
 
         {/* Lesson */}
@@ -93,10 +111,10 @@ export function Slide17B() {
         className="font-display text-3xl font-bold text-gray-900 mb-6 flex items-center gap-3"
       >
         <Star className="text-yellow-500" size={28} />
-        Tổng kết (Phần 2)
+        Tổng kết
       </motion.h2>
 
-      <div className="flex gap-4 flex-1">
+      <div className="flex gap-4 flex-1 mt-4">
         {/* Stats */}
         <motion.div 
           initial={{ opacity: 0, y: 30 }}

@@ -10,10 +10,10 @@ export function Slide11A() {
         animate={{ opacity: 1, x: 0 }}
         className="font-display text-3xl font-bold text-gray-900 mb-6"
       >
-        Alexander Fleming - Phát hiện tình cờ (Phần 1)
+        Alexander Fleming - Phát hiện tình cờ
       </motion.h2>
 
-      <div className="flex gap-6 flex-1">
+      <div className="flex gap-6 flex-1 mt-4">
         {/* The Setup */}
         <motion.div 
           initial={{ opacity: 0, y: 30 }}
@@ -114,10 +114,10 @@ export function Slide11B() {
         animate={{ opacity: 1, x: 0 }}
         className="font-display text-3xl font-bold text-gray-900 mb-6"
       >
-        Alexander Fleming - Phát hiện tình cờ (Phần 2)
+        Alexander Fleming - Phát hiện tình cờ
       </motion.h2>
 
-      <div className="flex gap-6 flex-1">
+      <div className="flex gap-6 flex-1 mt-4">
         {/* The Result */}
         <motion.div 
           initial={{ opacity: 0, x: -20 }}

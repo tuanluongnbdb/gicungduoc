@@ -11,7 +11,7 @@ export function Slide16A() {
         className="font-display text-3xl font-bold text-gray-900 mb-6 flex items-center gap-3"
       >
         <Rocket className="text-blue-500" size={28} />
-        Tương lai - Những điều thú vị sắp tới (Phần 1)
+        Tương lai - Những điều thú vị sắp tới
       </motion.h2>
 
       <div className="grid grid-cols-2 gap-6 flex-1">
@@ -54,7 +54,7 @@ export function Slide16B() {
         className="font-display text-3xl font-bold text-gray-900 mb-6 flex items-center gap-3"
       >
         <Rocket className="text-blue-500" size={28} />
-        Tương lai - Những điều thú vị sắp tới (Phần 2)
+        Tương lai - Những điều thú vị sắp tới
       </motion.h2>
 
       <div className="grid grid-cols-2 gap-6 flex-1">
