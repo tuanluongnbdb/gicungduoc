@@ -36,7 +36,7 @@ export function Slide18A() {
         </motion.div>
 
         <h1 className="font-display text-4xl font-bold tracking-tight text-gray-900 mb-8 drop-shadow-sm">
-          Cảm ơn các bạn đã lắng nghe!
+          Cảm ơn thầy và các bạn đã lắng nghe!
         </h1>
 
         <motion.div 
