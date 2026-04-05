@@ -5,6 +5,16 @@ import { Dna, Microscope, Activity } from 'lucide-react';
 export default function Slide1() {
   return (
     <div className="w-full h-full flex flex-col items-center justify-center relative overflow-hidden bg-gradient-to-br from-blue-50/50 to-indigo-50/50">
+      {/* Background Image */}
+      <div className="absolute inset-0 opacity-10 grayscale pointer-events-none">
+        <img 
+          src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&q=80&w=1920" 
+          alt="Laboratory Background" 
+          className="w-full h-full object-cover"
+          referrerPolicy="no-referrer"
+        />
+      </div>
+
       {/* Decorative background elements */}
       <motion.div 
         animate={{ rotate: 360 }}

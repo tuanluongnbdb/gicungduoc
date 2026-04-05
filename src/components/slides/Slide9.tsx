@@ -65,13 +65,23 @@ export function Slide9A() {
             <span className="px-3 py-1 bg-rose-200 text-rose-800 rounded-xl text-base font-bold shadow-sm">Quá khứ</span>
           </div>
           
-          <div className="flex items-center gap-4 mb-6 p-4 bg-white/80 rounded-3xl shadow-sm border border-rose-100 relative z-10">
-            <div className="p-3 bg-rose-100 rounded-2xl shadow-inner">
-              <PiggyBank className="text-rose-600" size={28} />
+          <div className="flex gap-4 items-center mb-6 relative z-10">
+            <div className="flex items-center gap-4 p-4 bg-white/80 rounded-3xl shadow-sm border border-rose-100 flex-1">
+              <div className="p-3 bg-rose-100 rounded-2xl shadow-inner">
+                <PiggyBank className="text-rose-600" size={28} />
+              </div>
+              <p className="text-xl font-bold text-rose-900">Lấy từ tụy lợn và bò</p>
             </div>
-            <p className="text-xl font-bold text-rose-900">Lấy từ tụy lợn và bò</p>
+            <div className="w-20 h-20 rounded-2xl overflow-hidden border-2 border-white shadow-md">
+              <img 
+                src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&q=80&w=200" 
+                alt="Pig pancreas source" 
+                className="w-full h-full object-cover"
+                referrerPolicy="no-referrer"
+              />
+            </div>
           </div>
-
+          
           <ul className="space-y-4 text-lg text-rose-800/90 relative z-10 bg-white/60 p-6 rounded-3xl border border-rose-100 flex-1">
             <li className="flex items-center gap-3"><div className="w-2.5 h-2.5 rounded-full bg-rose-400" /> 1 bệnh nhân cần 2-3 con lợn/năm</li>
             <li className="flex items-center gap-3"><div className="w-2.5 h-2.5 rounded-full bg-rose-400" /> Rất đắt (100 USD/lọ năm 1970)</li>

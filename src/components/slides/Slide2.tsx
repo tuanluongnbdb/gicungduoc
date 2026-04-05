@@ -19,14 +19,16 @@ export function Slide2A() {
       </motion.div>
 
       <div className="flex-1 flex flex-col justify-center max-w-5xl mx-auto w-full relative z-10">
-        <motion.p 
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 0.2 }}
-          className="text-2xl text-slate-600 mb-12 leading-relaxed max-w-4xl"
-        >
-          Đơn giản thôi — đó là những sinh vật <span className="text-blue-600 font-bold">quá nhỏ để nhìn bằng mắt thường</span>, cần đến kính hiển vi mới thấy được. Chúng bao gồm vi khuẩn, virus, nấm và nhiều loại khác.
-        </motion.p>
+        <div className="flex gap-12 items-center mb-12">
+          <motion.p 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.2 }}
+            className="text-2xl text-slate-600 leading-relaxed flex-1"
+          >
+            Đơn giản thôi — đó là những sinh vật <span className="text-blue-600 font-bold">quá nhỏ để nhìn bằng mắt thường</span>, cần đến kính hiển vi mới thấy được. Chúng bao gồm vi khuẩn, virus, nấm và nhiều loại khác.
+          </motion.p>
+        </div>
 
         <div className="grid grid-cols-2 gap-8">
           <StatCard 

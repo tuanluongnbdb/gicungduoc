@@ -51,9 +51,19 @@ export function Slide4A() {
               <Search size={32} />
               <h3 className="font-bold text-2xl">Phát hiện kỳ lạ</h3>
             </div>
-            <p className="text-xl text-gray-700 relative z-10 leading-relaxed">
-              Lật lại hồ sơ cũ: Một bệnh nhân bị khối u ác tính ở cổ, sau đó bị <span className="text-red-600 font-bold">nhiễm trùng da nặng, sốt cao</span>.
-            </p>
+            <div className="flex gap-4 items-center relative z-10">
+              <p className="text-xl text-gray-700 leading-relaxed flex-1">
+                Lật lại hồ sơ cũ: Một bệnh nhân bị khối u ác tính ở cổ, sau đó bị <span className="text-red-600 font-bold">nhiễm trùng da nặng, sốt cao</span>.
+              </p>
+              <div className="w-24 h-24 rounded-2xl overflow-hidden border-2 border-white shadow-md shrink-0">
+                <img 
+                  src="https://images.unsplash.com/photo-1576086213369-97a306d36557?auto=format&fit=crop&q=80&w=200" 
+                  alt="Old medical records" 
+                  className="w-full h-full object-cover"
+                  referrerPolicy="no-referrer"
+                />
+              </div>
+            </div>
           </div>
         </motion.div>
 

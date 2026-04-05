@@ -85,7 +85,7 @@ function ModernAppCard({ icon, title, items, color, delay, bgIcon }: any) {
         <h3 className="font-bold text-2xl text-gray-800">{title}</h3>
       </div>
       
-      <ul className="space-y-4 flex-1 relative z-10 bg-white/60 p-6 rounded-3xl border border-white/50">
+      <ul className="space-y-4 flex-1 relative z-10 bg-white/60 p-6 rounded-3xl border border-white/50 mb-4">
         {items.map((item: string, idx: number) => (
           <li key={idx} className="flex items-start gap-3 text-lg">
             <div className={`w-3 h-3 rounded-full mt-2.5 shrink-0 ${colorStyles?.split(' ')[3].replace('text-', 'bg-')}`} />
@@ -93,6 +93,14 @@ function ModernAppCard({ icon, title, items, color, delay, bgIcon }: any) {
           </li>
         ))}
       </ul>
+      <div className="h-24 rounded-2xl overflow-hidden border border-white/50 relative z-10">
+        <img 
+          src={`https://images.unsplash.com/photo-${title === 'BCG' ? '1581594693702-fbdc51b2763b' : title === 'T-VEC' ? '1584036561566-baf8f5f1b144' : '1576086213369-97a306d36557'}?auto=format&fit=crop&q=80&w=300`} 
+          alt={title} 
+          className="w-full h-full object-cover opacity-80"
+          referrerPolicy="no-referrer"
+        />
+      </div>
     </motion.div>
   );
 }

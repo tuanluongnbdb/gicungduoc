@@ -37,17 +37,19 @@ export function Slide5A() {
             <h3 className="font-bold text-2xl">Phương pháp (1893)</h3>
           </div>
           <div className="flex flex-col gap-4 relative z-10">
-            <div className="p-4 bg-white/80 rounded-2xl shadow-sm border border-blue-100 flex items-center gap-4">
-              <div className="w-10 h-10 rounded-full bg-blue-500 flex items-center justify-center text-white font-bold">1</div>
-              <p className="text-lg font-medium">Lấy vi khuẩn</p>
-            </div>
-            <div className="p-4 bg-white/80 rounded-2xl shadow-sm border border-blue-100 flex items-center gap-4">
-              <div className="w-10 h-10 rounded-full bg-blue-500 flex items-center justify-center text-white font-bold">2</div>
-              <p className="text-lg font-medium">Đun chết (an toàn hơn)</p>
-            </div>
-            <div className="p-4 bg-white/80 rounded-2xl shadow-sm border border-blue-100 flex items-center gap-4">
-              <div className="w-10 h-10 rounded-full bg-blue-500 flex items-center justify-center text-white font-bold">3</div>
-              <p className="text-lg font-medium">Tiêm vào khối u</p>
+            <div className="space-y-4">
+              <div className="p-4 bg-white/80 rounded-2xl shadow-sm border border-blue-100 flex items-center gap-4">
+                <div className="w-10 h-10 rounded-full bg-blue-500 flex items-center justify-center text-white font-bold">1</div>
+                <p className="text-lg font-medium">Lấy vi khuẩn</p>
+              </div>
+              <div className="p-4 bg-white/80 rounded-2xl shadow-sm border border-blue-100 flex items-center gap-4">
+                <div className="w-10 h-10 rounded-full bg-blue-500 flex items-center justify-center text-white font-bold">2</div>
+                <p className="text-lg font-medium">Đun chết (an toàn hơn)</p>
+              </div>
+              <div className="p-4 bg-white/80 rounded-2xl shadow-sm border border-blue-100 flex items-center gap-4">
+                <div className="w-10 h-10 rounded-full bg-blue-500 flex items-center justify-center text-white font-bold">3</div>
+                <p className="text-lg font-medium">Tiêm vào khối u</p>
+              </div>
             </div>
           </div>
         </motion.div>
