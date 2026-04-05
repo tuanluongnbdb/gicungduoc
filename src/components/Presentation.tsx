@@ -9,7 +9,27 @@ export default function Presentation() {
   const [isFullscreen, setIsFullscreen] = useState(false);
   const [autoScale, setAutoScale] = useState(1);
   const [userScale, setUserScale] = useState(1);
+  const [position, setPosition] = useState({ x: 0, y: 0 });
   const containerRef = useRef<HTMLDivElement>(null);
+  const [showControls, setShowControls] = useState(true);
+  const controlsTimeoutRef = useRef<NodeJS.Timeout | null>(null);
+
+  const handleMouseMove = () => {
+    if (!isFullscreen) return;
+    setShowControls(true);
+    if (controlsTimeoutRef.current) clearTimeout(controlsTimeoutRef.current);
+    controlsTimeoutRef.current = setTimeout(() => {
+      setShowControls(false);
+    }, 3000);
+  };
+
+  const resetZoom = () => {
+    setUserScale(1);
+    setPosition({ x: 0, y: 0 });
+  };
+
+  const handleZoomIn = () => setUserScale(prev => Math.min(prev + 0.1, 3));
+  const handleZoomOut = () => setUserScale(prev => Math.max(prev - 0.1, 0.5));
 
   const nextSlide = useCallback(() => {
     if (currentSlide < slides.length - 1) {
@@ -35,15 +55,34 @@ export default function Presentation() {
     };
 
     window.addEventListener('keydown', handleKeyDown);
-    return () => window.removeEventListener('keydown', handleKeyDown);
+    return () => {
+      window.removeEventListener('keydown', handleKeyDown);
+      if (controlsTimeoutRef.current) clearTimeout(controlsTimeoutRef.current);
+    };
   }, [nextSlide, prevSlide]);
 
   useEffect(() => {
     const handleFullscreenChange = () => {
-      setIsFullscreen(!!document.fullscreenElement);
+      const isFull = !!(
+        document.fullscreenElement ||
+        (document as any).webkitFullscreenElement ||
+        (document as any).mozFullScreenElement ||
+        (document as any).msFullscreenElement
+      );
+      setIsFullscreen(isFull);
     };
+    
     document.addEventListener('fullscreenchange', handleFullscreenChange);
-    return () => document.removeEventListener('fullscreenchange', handleFullscreenChange);
+    document.addEventListener('webkitfullscreenchange', handleFullscreenChange);
+    document.addEventListener('mozfullscreenchange', handleFullscreenChange);
+    document.addEventListener('MSFullscreenChange', handleFullscreenChange);
+    
+    return () => {
+      document.removeEventListener('fullscreenchange', handleFullscreenChange);
+      document.removeEventListener('webkitfullscreenchange', handleFullscreenChange);
+      document.removeEventListener('mozfullscreenchange', handleFullscreenChange);
+      document.removeEventListener('MSFullscreenChange', handleFullscreenChange);
+    };
   }, []);
 
   useEffect(() => {
@@ -51,71 +90,104 @@ export default function Presentation() {
       if (containerRef.current) {
         const { clientWidth, clientHeight } = containerRef.current;
         // Base resolution of slides: 1280x720 (16:9)
-        const availableHeight = clientHeight - (isFullscreen ? 0 : 60); // Leave space for controls if not fullscreen
-        const scaleX = clientWidth / 1280;
+        // Check actual fullscreen state from document for more reliability
+        const isFull = !!(
+          document.fullscreenElement ||
+          (document as any).webkitFullscreenElement ||
+          (document as any).mozFullScreenElement ||
+          (document as any).msFullscreenElement
+        );
+        
+        // In non-fullscreen, we want to reserve space for the controls at the bottom
+        const controlSpace = isFull ? 0 : 80;
+        const margin = isFull ? 1 : 0.95;
+        const availableWidth = clientWidth * margin;
+        const availableHeight = (clientHeight - controlSpace) * margin;
+        
+        const scaleX = availableWidth / 1280;
         const scaleY = availableHeight / 720;
-        setAutoScale(Math.min(scaleX, scaleY) * (isFullscreen ? 1 : 0.98)); // Increased to 0.98 for maximum visibility
+        
+        setAutoScale(Math.min(scaleX, scaleY));
       }
     };
 
     updateScale();
+    const resizeObserver = new ResizeObserver(updateScale);
+    if (containerRef.current) {
+      resizeObserver.observe(containerRef.current);
+    }
     window.addEventListener('resize', updateScale);
-    return () => window.removeEventListener('resize', updateScale);
+    return () => {
+      window.removeEventListener('resize', updateScale);
+      resizeObserver.disconnect();
+    };
   }, [isFullscreen]);
 
   const toggleFullScreen = () => {
     if (isFullscreen) {
-      if (document.fullscreenElement && document.exitFullscreen) {
-        document.exitFullscreen().catch(() => setIsFullscreen(false));
+      const doc = document as any;
+      const exitFullscreen = doc.exitFullscreen || doc.webkitExitFullscreen || doc.mozCancelFullScreen || doc.msExitFullscreen;
+      if (exitFullscreen) {
+        exitFullscreen.call(doc).catch(() => setIsFullscreen(false));
       } else {
         setIsFullscreen(false);
       }
     } else {
-      try {
-        const docEl = document.documentElement as any;
-        const promise = (docEl.requestFullscreen || docEl.webkitRequestFullscreen || docEl.msRequestFullscreen)?.call(docEl);
-        if (promise) {
-          promise.catch(() => {
-            // Fallback to CSS fullscreen if native fails (e.g., in iframe)
-            setIsFullscreen(true);
-          });
-        } else {
-          setIsFullscreen(true);
-        }
-      } catch (e) {
+      const docEl = document.documentElement as any;
+      const requestFullscreen = docEl.requestFullscreen || docEl.webkitRequestFullscreen || docEl.mozRequestFullScreen || docEl.msRequestFullscreen;
+      
+      if (requestFullscreen) {
+        requestFullscreen.call(docEl)
+          .then(() => setIsFullscreen(true))
+          .catch(() => setIsFullscreen(true));
+      } else {
         setIsFullscreen(true);
       }
     }
   };
-
-  const handleZoomIn = () => setUserScale(prev => Math.min(prev + 0.1, 2));
-  const handleZoomOut = () => setUserScale(prev => Math.max(prev - 0.1, 0.5));
-  const resetZoom = () => setUserScale(1);
 
   const CurrentSlideComponent = slides[currentSlide];
 
   const finalScale = autoScale * userScale;
 
   return (
-    <div className={`flex flex-col items-center justify-center relative overflow-hidden transition-all duration-500 ${
-      isFullscreen 
-        ? 'fixed inset-0 z-[100] bg-[#f5f5f7] p-0' 
-        : 'w-screen h-screen'
-    }`}>
+    <div 
+      onMouseMove={handleMouseMove}
+      className={`flex flex-col items-center justify-center relative overflow-hidden w-full h-full bg-transparent ${
+        isFullscreen ? 'fixed! inset-0! z-[9999]!' : ''
+      }`}
+    >
       {/* Background decorative elements */}
       <div className="absolute top-[-10%] left-[-10%] w-[40%] h-[40%] rounded-full bg-blue-400/10 blur-[100px] pointer-events-none" />
       <div className="absolute bottom-[-10%] right-[-10%] w-[40%] h-[40%] rounded-full bg-indigo-400/10 blur-[100px] pointer-events-none" />
       
       {/* Main Slide Container Wrapper */}
-      <div ref={containerRef} className="w-full h-full flex-1 flex items-center justify-center relative z-10 pb-12">
-        <div 
+      <div 
+        ref={containerRef} 
+        className="w-full h-full flex-1 flex items-center justify-center relative z-10 overflow-hidden cursor-grab active:cursor-grabbing"
+      >
+        <motion.div 
+          drag="y"
+          dragElastic={0.1}
+          dragMomentum={false}
+          onDragEnd={(_, info) => {
+            setPosition(prev => ({
+              x: 0,
+              y: prev.y + info.offset.y
+            }));
+          }}
+          animate={{ 
+            x: 0,
+            y: position.y,
+            scale: finalScale 
+          }}
           style={{ 
             width: 1280, 
             height: 720, 
-            transform: `scale(${finalScale})`,
-            transformOrigin: 'center center'
+            transformOrigin: 'center center',
+            marginBottom: isFullscreen ? 0 : '40px'
           }}
-          className={`glass-panel relative overflow-hidden flex flex-col shrink-0 shadow-2xl transition-transform duration-300 ease-out ${isFullscreen ? 'rounded-none border-none' : ''}`}
+          className={`glass-panel relative overflow-hidden flex flex-col shrink-0 shadow-2xl transition-all duration-300 ease-out ${isFullscreen ? 'rounded-none border-none shadow-none' : ''}`}
         >
           <AnimatePresence mode="wait" custom={direction}>
             <motion.div
@@ -130,12 +202,14 @@ export default function Presentation() {
               <CurrentSlideComponent />
             </motion.div>
           </AnimatePresence>
-        </div>
+        </motion.div>
       </div>
 
       {/* Controls */}
       <div className={`absolute left-1/2 -translate-x-1/2 flex items-center gap-2 glass px-4 py-2 rounded-full z-50 transition-all duration-500 ${
-        isFullscreen ? 'bottom-6' : 'bottom-4'
+        isFullscreen 
+          ? (showControls ? 'bottom-6 opacity-100' : 'bottom-0 opacity-0 translate-y-full pointer-events-none') 
+          : 'bottom-4 opacity-100'
       }`}>
         <button 
           onClick={prevSlide}
@@ -185,7 +259,7 @@ export default function Presentation() {
             <input 
               type="range" 
               min="0.5" 
-              max="2" 
+              max="3" 
               step="0.01" 
               value={userScale} 
               onChange={(e) => setUserScale(parseFloat(e.target.value))}

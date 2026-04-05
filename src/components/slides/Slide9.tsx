@@ -63,14 +63,8 @@ export function Slide9A() {
           <h3 className="font-bold text-xl mb-3 text-red-900 relative z-10">Nguy kịch</h3>
           <ul className="text-lg text-red-800 space-y-2 relative z-10">
             <motion.li initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.6 }}>• Vi khuẩn kháng TẤT CẢ kháng sinh</motion.li>
-            <motion.li initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.7 }}>• Hôn mê 3 tháng</motion.li>
+            <motion.li initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.7 }}>• Đã hôn mê 3 tháng</motion.li>
             <motion.li initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: 0.8 }}>• Giảm từ 80kg xuống 55kg</motion.li>
-            <motion.li 
-              initial={{ opacity: 0, scale: 0.9 }} animate={{ opacity: 1, scale: 1 }} transition={{ delay: 0.9 }}
-              className="italic font-bold mt-4 p-3 bg-white/80 backdrop-blur-sm rounded-xl border border-red-200 shadow-md text-red-900"
-            >
-              Bác sĩ: "Chuẩn bị cho tình huống xấu nhất"
-            </motion.li>
           </ul>
         </motion.div>
       </div>
