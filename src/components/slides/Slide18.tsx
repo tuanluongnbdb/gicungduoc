@@ -56,7 +56,7 @@ export function Slide18A() {
             <Sparkles className="text-emerald-200" size={20} />
           </div>
           <p className="text-2xl font-display font-medium leading-relaxed">
-            "Vi sinh vật không chỉ là những kẻ thù vô hình, mà còn là những <span className="text-emerald-200 font-bold drop-shadow-md">cộng sự đắc lực</span> giúp con người chinh phục những giới hạn mới trong y học."
+            "Đừng chỉ xem vi sinh vật là kẻ thù — hãy học cách <span className="text-emerald-200 font-bold drop-shadow-md">chung sống và tận dụng chúng</span> để bảo vệ sức khỏe con người."
           </p>
         </motion.div>
       </motion.div>

@@ -37,7 +37,7 @@ export function Slide3A() {
             <h3 className="font-bold text-2xl">Quan niệm sai lầm</h3>
           </div>
           <p className="text-xl text-gray-700 leading-relaxed relative z-10 mb-6">
-            Trong nhận thức phổ thông, vi sinh vật thường bị coi là <span className="text-red-600 font-bold">tác nhân gây bệnh</span> nguy hiểm, song thực tế chúng lại đóng vai trò không thể thay thế đối với sự sống.
+            Nhiều người nghĩ vi sinh vật <span className="text-red-600 font-bold">toàn gây bệnh</span> — nhưng thực ra điều đó không đúng.
           </p>
           <div className="h-32 rounded-2xl overflow-hidden relative z-10">
             <img 
@@ -121,7 +121,7 @@ export function Slide3B() {
           </motion.div>
 
           <p className="text-3xl font-display font-medium leading-relaxed mb-10 relative z-10">
-            Nhờ những tiến bộ vượt bậc của khoa học, con người đã khai thác sức mạnh của vi sinh vật để chế tạo các loại <span className="text-yellow-300 font-bold">dược phẩm, vaccine</span> và những liệu pháp y sinh mang tính đột phá.
+            Con người đã học cách tận dụng vi sinh vật để tạo ra <span className="text-yellow-300 font-bold">thuốc, vaccine</span>, và nhiều liệu pháp điều trị kỳ diệu khác.
           </p>
 
           <div className="flex gap-8 items-start relative z-10">
