@@ -38,7 +38,7 @@ export function Slide12A() {
           </div>
           
           <p className="text-2xl text-gray-700 leading-relaxed relative z-10 mb-8 font-medium">
-            Vi sinh vật không chỉ gây bệnh — chúng còn là những <span className="text-blue-600 font-bold">"nhà máy" cứu sống con người</span>.
+            Vi sinh vật: Từ nỗi sợ hãi về mầm bệnh trở thành <span className="text-blue-600 font-bold">"người hùng thầm lặng"</span> kiến tạo nên nền y học hiện đại.
           </p>
 
           <div className="grid grid-cols-2 gap-6 relative z-10">

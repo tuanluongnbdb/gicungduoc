@@ -26,7 +26,7 @@ export function Slide2A() {
             transition={{ delay: 0.2 }}
             className="text-2xl text-slate-600 leading-relaxed flex-1"
           >
-            Đơn giản thôi — đó là những sinh vật <span className="text-blue-600 font-bold">quá nhỏ để nhìn bằng mắt thường</span>, cần đến kính hiển vi mới thấy được. Chúng bao gồm vi khuẩn, virus, nấm và nhiều loại khác.
+            Vi sinh vật là những sinh vật có <span className="text-blue-600 font-bold">kích thước siêu hiển vi</span>, không thể quan sát bằng mắt thường mà phải thông qua kính hiển vi chuyên dụng. Chúng bao gồm các nhóm đa dạng như vi khuẩn, virus, nấm và tảo.
           </motion.p>
         </div>
 
